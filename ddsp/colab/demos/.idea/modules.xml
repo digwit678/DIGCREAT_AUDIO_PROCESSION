@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../../../../Enzyme-Stability-Prediction/.idea/Enzyme-Stability-Prediction.iml" filepath="$PROJECT_DIR$/../../../../Enzyme-Stability-Prediction/.idea/Enzyme-Stability-Prediction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../../../../HSLU/AIML/Semester_5/NLP/SW02/.idea/SW02.iml" filepath="$PROJECT_DIR$/../../../../../../../HSLU/AIML/Semester_5/NLP/SW02/.idea/SW02.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/demos.iml" filepath="$PROJECT_DIR$/.idea/demos.iml" />
     </modules>
   </component>
