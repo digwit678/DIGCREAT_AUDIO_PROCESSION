@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4500e9a-5365-4e89-9fb6-012ccb85afed" name="Changes" comment="corrections">
+    <list default="true" id="b4500e9a-5365-4e89-9fb6-012ccb85afed" name="Changes" comment="CatBoost v2 added: test shape adjusted&#10;XGBoost v2 added: test shape adjusted">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/timbre_transfer.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/timbre_transfer.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../templates/timbre_transfer.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../../../templates/timbre_transfer.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Enzyme-Stability-Prediction/tree_models/xgboost_model_09_11.zip" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +77,8 @@
     <MESSAGE value="lightgbm v0" />
     <MESSAGE value="xboost data exploration v0 added" />
     <MESSAGE value="corrections" />
-    <option name="LAST_COMMIT_MESSAGE" value="corrections" />
+    <MESSAGE value="catBoost model added" />
+    <MESSAGE value="CatBoost v2 added: test shape adjusted&#10;XGBoost v2 added: test shape adjusted" />
+    <option name="LAST_COMMIT_MESSAGE" value="CatBoost v2 added: test shape adjusted&#10;XGBoost v2 added: test shape adjusted" />
   </component>
 </project>
