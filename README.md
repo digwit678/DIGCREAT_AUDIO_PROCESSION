@@ -28,8 +28,8 @@ More semantically meaningful: symbolic modelling as a language model --> faster 
 idea: represent music in more meaningful way 
 old: predict new waveform, given old waveform (we perceive different waveforms as the same sound), model the waveforms sample by sample 
 idea: incorporate prior information of ddsp and signal processing ==> generate simple oscillator components: whats frequencies and amplitudes of a model (interprete signal processes in TensorFlow , take gradient and look at frequency alignment of input and target audio to create expressive sound): manipulate frequencies individually in selectively with knowing whats going on in the inside of the model (interpretable),  (ear (ear is sensitive to phases of sinewaves if there is no frequency): 1.) frequency decomposition)  
-creativity: if only bit streams of audio (0´s and 1´s) you do not know what´s going on inside -- DB and HZ are more informative frequencies: take those for the encoder. what if take the pitch and loudness of a different signal than the one my decoder is trained on ? 
-Pitch and frequency stays the same but the tone changes according to the instrument learned by the decoder (decodes pitch and freq into e.g. a violin sound) (timbre transfer) ==> allows to run models in real time (was never possible with raw waveform models)  
+creativity: if only bit streams of audio (0´s and 1´s) you do not know what´s going on inside -- DB and HZ are more informative frequencies: take those for the encoder. What if I take the pitch and loudness of a different signal than the one my decoder is trained on ? 
+Pitch and frequency stays the same but the tone changes according to the instrument learned by the decoder (decodes pitch and freq into e.g. a violin sound) (timbre transfer). DDSP allows to run models in real time (was never possible with raw waveform models)  
 
 You can get very creative by trying routing lots of differents submodules in different ways. 
 
