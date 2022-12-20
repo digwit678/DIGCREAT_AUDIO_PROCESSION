@@ -22,7 +22,7 @@ Autogenerative models try to mitigate these problems by constructing the wavefor
 Still, the waveform shapes do not perfectly correlate with human perception because of teacher enforcing / exposure bias during network training.
 For example the waveforms on the right sound the same for humans but cause different perceptual losses for the model. Moreover they need alot of data to work. 
 
-<img width="600" height="500" alt="ddsp_challenges_waveforms" src="https://user-images.githubusercontent.com/24375094/208299823-f1c3ce8c-39d0-4bb2-96dc-d0043be9c0e3.png"> 
+<img width="1000" height="400" alt="ddsp_challenges_waveforms" src="https://user-images.githubusercontent.com/24375094/208299823-f1c3ce8c-39d0-4bb2-96dc-d0043be9c0e3.png"> 
 
 #### Oscillation based Models
 
@@ -34,7 +34,7 @@ Still the model is prone to errors and lacks expressiveness when learning with t
 Rather than predicting the waveforms or Fourier coefficients those models directly generates the oscillations. These “analysis/synthesis” models use expert knowledge and hand-tuned heuristics to xtract synthesis parameters (analysis) that are interpretable (**loudness** in dB and **frequencies** in Hz) and can be
 used by the generative algorithm (synthesis). With this representation you can represent a harmonic oscillation precisely solely by using the fundamental frequency (f0), some harmonics (integer multiplications) and the amplitude. 
 
-<img width="481" alt="ddsp_harmonic_transformation" src="https://user-images.githubusercontent.com/24375094/208642273-5b044358-22cf-4526-92e7-1e517dc68d4b.png">
+<img width="1000"  height="400" alt="ddsp_harmonic_transformation" src="https://user-images.githubusercontent.com/24375094/208642273-5b044358-22cf-4526-92e7-1e517dc68d4b.png">
 
 
 ## Dataset 
