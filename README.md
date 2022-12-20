@@ -4,25 +4,27 @@ Digitally process audio data with ML &amp; Magenta
 
 Magenta: Open Source Research 
 
-## Challenges    
+## Challenges   
+
+### Representation of Audio
  
 One song of 3 minutes : 1 Million time steps BUT relevant information is much less! **The art is to extract those featuers** and find a meaningful representation for music. If music is only structured as a bit stream consisting of 1´s and 0´s it is very difficult to know what´s going on.  
 
-### Phase Alignment
+#### Phase Alignment
 
 Phases of different simultaneous frequencies have to be aligned precisely else they cancel each other out or become to loud which leads to an overall bad mix.
 
-### Fourier based Models
+#### Fourier based Models
 Another widely used method was to just learn all the waveform packages, decompose them into sine and cosine waves and finally recreate the soundwave out of the Fourier waves. However, the waveforms overlap and therefore this procedure is inprecise and inefficient.   
 
-### Autogenerative Models
+#### Autogenerative Models
 Autogenerative models try to mitigate these problems by constructing the waveform sample by sample so they do not suffer from the same bias the wave packets. 
 Still, the waveform shapes do not perfectly correlate with human perception because of teacher enforcing / exposure bias during network training.
 For example the waveforms on the right sound the same for humans but cause different perceptual losses for the model. Moreover they need alot of data to work. 
 
 <img width="405" alt="ddsp_challenges_waveforms" src="https://user-images.githubusercontent.com/24375094/208299823-f1c3ce8c-39d0-4bb2-96dc-d0043be9c0e3.png"> 
 
-### Oscillation based Models
+#### Oscillation based Models
 
 Instead of learning all the features for waveform/Short Fourier Transformation another more selective way would be to learn only the synthesis parameters. 
 Still the model is prone to errors and lacks expressiveness when learning with these annotated synthesizer parameters. 
@@ -67,7 +69,7 @@ That´s where the ddsp library comes in: it offers sound modules (synthesizers) 
 <img width="1638" alt="ddsp_autoencoder" src="https://user-images.githubusercontent.com/24375094/208653552-06a19ab8-fbaa-4c42-86fc-490c9ce4b0e8.png">
 
 ### Python Code
-<img width="353" alt="colab_tut_training_basic_code_python_soundmodules" src="https://user-images.githubusercontent.com/24375094/208652789-f7b99ce7-d19c-435a-af41-4a02ec325554.png">
+<img width="500",height="800" alt="colab_tut_training_basic_code_python_soundmodules" src="https://user-images.githubusercontent.com/24375094/208652789-f7b99ce7-d19c-435a-af41-4a02ec325554.png">
 
 
 
