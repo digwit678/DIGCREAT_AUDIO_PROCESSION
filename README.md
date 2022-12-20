@@ -24,28 +24,43 @@ For example the waveforms on the right sound the same for humans but cause diffe
 
 ### Oscillation based Models
 
+Instead of learning all the features for waveform/Short Fourier Transformation another more selective way would be to learn only the synthesis parameters. 
+Still the model is prone to errors and lacks expressiveness when learning with these annotated synthesizer parameters. 
+
+<img width="735" alt="annotated_synthesis_features" src="https://user-images.githubusercontent.com/24375094/208300159-41de5390-199c-4b90-bd7d-328f2d28b29a.png"> 
+
 Rather than predicting the waveforms or Fourier coefficients those models directly generates the oscillations. These “analysis/synthesis” models use expert knowledge and hand-tuned heuristics to xtract synthesis parameters (analysis) that are interpretable (**loudness** in dB and **frequencies** in Hz) and can be
 used by the generative algorithm (synthesis). With this representation you can represent a harmonic oscillation precisely solely by using the fundamental frequency (f0), some harmonics (integer multiplications) and the amplitude. 
 
 <img width="481" alt="ddsp_harmonic_transformation" src="https://user-images.githubusercontent.com/24375094/208642273-5b044358-22cf-4526-92e7-1e517dc68d4b.png">
 
-That´s where the ddsp library comes in: it offers sound modules (synthesizers) which are differentiable and therefore can use back propagation to tune their synthesizer parameters (analog to recreating a sound on a synthesizer). 
+That´s where the ddsp library comes in: it offers sound modules (synthesizers) which are differentiable and therefore can use back propagation to tune their synthesizer parameters (analog to recreating a sound on a synthesizer) and do not learn as much bias as the other models by the help of deep specialized and structured layers.  
 
 
 ## Dataset 
 
-For our project we used the TensorfFlow dataset NSYNTH. The GANSUBSET of the NSYNTH dataset offers preprocessed samples which contain the most relevant features (amplitude and frequency) ready to use with the DDSP library. For efficient training we downloaded the 60 gigabyte of 11 instrument samples. Since the data wasn´t storted by instrument type we had to do this step additionally. For this we read the TFRecord files into python, parsed them to JSON to read the instrument label and then wrote them back to TFRecord files. For this to work properly, we had to continuously remove the written objects from the memory such that it did not overflow. All in all this procedure took around 10 hours to sort the samples 
+### Sorting 
 
-<img width="814" alt="feature_structure_gan" src="https://user-images.githubusercontent.com/24375094/208645745-041cb414-f287-45bb-8a47-8252fb813ad1.png">
+For our project we used the TensorfFlow GAN subset of the NSYNTH dataset. It offers preprocessed samples which contain the most relevant features (amplitude and frequency) ready to use with the DDSP library. 
+For efficient training we *downloaded* the 60 gigabyte of 11 instrument samples instead of streaming them. Since the *data wasn´t storted by instrument type* we had to do this step additionally: We read the TFRecord files into python, parsed them to JSON to identify the instrument label and then wrote them back to TFRecord files. For this to work properly, we had to continuously remove the written objects from the memory such that it did not overflow.  
+All in all this procedure took around 10 hours to sort the samples. 
 
+#### Raw TFRecord String Representation 
+
+<img width="788" alt="tfrecord_raw_string" src="https://user-images.githubusercontent.com/24375094/208647954-7a3f98de-d8fb-4b52-92b9-fac7517f3599.png">
+
+#### Raw TFRecord JSON Representation 
+
+
+<img width="796" alt="tfrecord_json_representation" src="https://user-images.githubusercontent.com/24375094/208648732-bc3f69e8-90af-4db9-b16a-82f8f9488aa2.png">
+
+### Feature Representation 
 The features are presented as floatList tensors which contain the values over very small timesteps (e.g. length of 64000).
 For efficient processing, (the features of) the input data has to be aligned with the architecture of a neural network.  
 
+<img width="814" alt="feature_structure_gan" src="https://user-images.githubusercontent.com/24375094/208645745-041cb414-f287-45bb-8a47-8252fb813ad1.png">
 
-Instead of learning all the features for waveform/Short Fourier Transformation another more selective way would be to learn only the synthesis parameters. 
-Still the model is prone to errors and lacks expressiveness when learning with these annotated synthesizer parameters. 
 
-<img width="735" alt="annotated_synthesis_features" src="https://user-images.githubusercontent.com/24375094/208300159-41de5390-199c-4b90-bd7d-328f2d28b29a.png"> 
 
 Python library DDSP provides differentiable sound modules (wavetable synthesizer, harmonic synthesizer, reverb) whose parameters can be learned and improved by backwards propagation from the target waveform.
 NNs do not have to learn the intrinsic biases with the help of deep specialized layers. 
