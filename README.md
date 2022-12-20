@@ -22,7 +22,7 @@ Autogenerative models try to mitigate these problems by constructing the wavefor
 Still, the waveform shapes do not perfectly correlate with human perception because of teacher enforcing / exposure bias during network training.
 For example the waveforms on the right sound the same for humans but cause different perceptual losses for the model. Moreover they need alot of data to work. 
 
-<img width="405" height="700" alt="ddsp_challenges_waveforms" src="https://user-images.githubusercontent.com/24375094/208299823-f1c3ce8c-39d0-4bb2-96dc-d0043be9c0e3.png"> 
+<img width="600" height="500" alt="ddsp_challenges_waveforms" src="https://user-images.githubusercontent.com/24375094/208299823-f1c3ce8c-39d0-4bb2-96dc-d0043be9c0e3.png"> 
 
 #### Oscillation based Models
 
