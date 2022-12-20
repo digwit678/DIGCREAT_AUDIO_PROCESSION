@@ -6,7 +6,7 @@ Magenta: Open Source Research
 
 ## Challenges    
  
-One song of 3 minutes : 1 Million time steps BUT relevant information is much less! **The art is to extract those featuers** and find a meaningful representation for music. If music is only structured as a bit stream consisting of 1´s and 0´s it is very difficult to know what´s going on. 
+One song of 3 minutes : 1 Million time steps BUT relevant information is much less! **The art is to extract those featuers** and find a meaningful representation for music. If music is only structured as a bit stream consisting of 1´s and 0´s it is very difficult to know what´s going on.  
 Another widely used method was to just learn all the waveforms, decompose them into sine and cosine waves and finally recreate the soundwave by the means of waveform addition. However, this procedure is inprecise and inefficient because the reconstructed waveform uses more waveforms than necessary and this slows the process.  
 Another problem with waveforms is human perception: some of them sound exactly the same but look different on a spectogram.  
 
