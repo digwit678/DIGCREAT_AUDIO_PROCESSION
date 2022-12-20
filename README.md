@@ -13,7 +13,7 @@ One song of 3 minutes : 1 Million time steps BUT relevant information is much le
 Phases of different simultaneous frequencies have to be aligned precisely else they cancel each other out or become to loud which leads to an overall bad mix.
 
 ### Fourier based Models
-Another widely used method was to just learn all the waveform packages, decompose them into sine and cosine waves and finally recreate the soundwave by the means of waveform addition. However, the waveforms overlap and therefore this procedure is inprecise and inefficient.   
+Another widely used method was to just learn all the waveform packages, decompose them into sine and cosine waves and finally recreate the soundwave out of the Fourier waves. However, the waveforms overlap and therefore this procedure is inprecise and inefficient.   
 
 ### Autogenerative Models
 Autogenerative models try to mitigate these problems by constructing the waveform sample by sample so they do not suffer from the same bias the wave packets. 
@@ -25,10 +25,20 @@ For example the waveforms on the right sound the same for humans but cause diffe
 ### Oscillation based Models
 
 Rather than predicting the waveforms or Fourier coefficients those models directly generates the oscillations. These “analysis/synthesis” models use expert knowledge and hand-tuned heuristics to xtract synthesis parameters (analysis) that are interpretable (**loudness** in dB and **frequencies** in Hz) and can be
-used by the generative algorithm (synthesis). That´s where the ddsp library comes in: it offers sound modules (synthesizers) which are differentiable and therefore can use back propagation to tune their synthesizer parameters (analog to recreating a sound on a synthesizer). 
+used by the generative algorithm (synthesis). With this representation you can represent a harmonic oscillation precisely solely by using the fundamental frequency (f0), some harmonics (integer multiplications) and the amplitude. 
+
+<img width="481" alt="ddsp_harmonic_transformation" src="https://user-images.githubusercontent.com/24375094/208642273-5b044358-22cf-4526-92e7-1e517dc68d4b.png">
+
+That´s where the ddsp library comes in: it offers sound modules (synthesizers) which are differentiable and therefore can use back propagation to tune their synthesizer parameters (analog to recreating a sound on a synthesizer). 
 
 
-The features are presented as tensors 
+## Dataset 
+
+For our project we used the TensorfFlow dataset NSYNTH. The GANSUBSET of the NSYNTH dataset offers preprocessed samples which contain the most relevant features (amplitude and frequency) ready to use with the DDSP library. For efficient training we downloaded the 60 gigabyte of 11 instrument samples. Since the data wasn´t storted by instrument type we had to do this step additionally. For this we read the TFRecord files into python, parsed them to JSON to read the instrument label and then wrote them back to TFRecord files. For this to work properly, we had to continuously remove the written objects from the memory such that it did not overflow. All in all this procedure took around 10 hours to sort the samples 
+
+<img width="814" alt="feature_structure_gan" src="https://user-images.githubusercontent.com/24375094/208645745-041cb414-f287-45bb-8a47-8252fb813ad1.png">
+
+The features are presented as floatList tensors which contain the values over very small timesteps (e.g. length of 64000).
 For efficient processing, (the features of) the input data has to be aligned with the architecture of a neural network.  
 
 
