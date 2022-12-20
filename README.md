@@ -29,8 +29,8 @@ Still the model is prone to errors and lacks expressiveness when learning with t
 
 <img width="735" alt="annotated_synthesis_features" src="https://user-images.githubusercontent.com/24375094/208300159-41de5390-199c-4b90-bd7d-328f2d28b29a.png"> 
 
-Rather than predicting the waveforms or Fourier coefficients those models directly generates the oscillations. These “analysis/synthesis” models use expert knowledge and hand-tuned heuristics to xtract synthesis parameters (*analysis*) that are interpretable (**loudness** in dB and **frequencies** in Hz) and can be
-used by the generative algorithm (*synthesis*). With this representation you can represent a harmonic oscillation precisely solely by using the fundamental frequency (f0), some harmonics (integer multiplications) and the amplitude. 
+Rather than predicting the waveforms or Fourier coefficients those models directly generates the oscillations. These “analysis/synthesis” models use expert knowledge and hand-tuned heuristics to xtract synthesis parameters (analysis) that are interpretable (**loudness** in dB and **frequencies** in Hz) and can be
+used by the generative algorithm (synthesis). With this representation you can represent a harmonic oscillation precisely solely by using the fundamental frequency (f0), some harmonics (integer multiplications) and the amplitude. 
 
 <img width="481" alt="ddsp_harmonic_transformation" src="https://user-images.githubusercontent.com/24375094/208642273-5b044358-22cf-4526-92e7-1e517dc68d4b.png">
 
@@ -61,8 +61,19 @@ For efficient processing, (the features of) the input data has to be aligned wit
 
 ## Training
 
-That´s where the ddsp library comes in: it offers sound modules (synthesizers) which are differentiable and therefore can use back propagation to tune their synthesizer parameters (analog to recreating a sound on a synthesizer) and do not learn as much bias as the other models by the help of deep specialized and structured layers. Thanks to specialized layer types we have ***faster training of autoencoders*** and therefore quick feedback, which overs a more convenient workflow than waiting 16 hours for training to finish.
+That´s where the ddsp library comes in: it offers sound modules (synthesizers) which are differentiable and therefore can use back propagation to tune their synthesizer parameters (analog to recreating a sound on a synthesizer) and do not learn as much bias as the other models by the help of deep specialized and structured layers. Thanks to specialized layer types we have ***faster training of autoencoders*** and therefore quick feedback, which offers a more convenient workflow than waiting 16 hours for training to finish until you can implement further changes.
 
+### Training of autoencoders
+<img width="1638" alt="ddsp_autoencoder" src="https://user-images.githubusercontent.com/24375094/208653552-06a19ab8-fbaa-4c42-86fc-490c9ce4b0e8.png">
+
+### Python Code
+<img width="353" alt="colab_tut_training_basic_code_python_soundmodules" src="https://user-images.githubusercontent.com/24375094/208652789-f7b99ce7-d19c-435a-af41-4a02ec325554.png">
+
+
+
+
+
+## Notes to Jesse DDSP video
 
 
 Lowest level: 
