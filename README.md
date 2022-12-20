@@ -34,8 +34,6 @@ used by the generative algorithm (synthesis). With this representation you can r
 
 <img width="481" alt="ddsp_harmonic_transformation" src="https://user-images.githubusercontent.com/24375094/208642273-5b044358-22cf-4526-92e7-1e517dc68d4b.png">
 
-That´s where the ddsp library comes in: it offers sound modules (synthesizers) which are differentiable and therefore can use back propagation to tune their synthesizer parameters (analog to recreating a sound on a synthesizer) and do not learn as much bias as the other models by the help of deep specialized and structured layers.  
-
 
 ## Dataset 
 
@@ -49,7 +47,7 @@ All in all this procedure took around 10 hours to sort the samples.
 
 <img width="788" alt="tfrecord_raw_string" src="https://user-images.githubusercontent.com/24375094/208647954-7a3f98de-d8fb-4b52-92b9-fac7517f3599.png">
 
-#### Raw TFRecord JSON Representation 
+#### TFRecord JSON Representation 
 
 
 <img width="796" alt="tfrecord_json_representation" src="https://user-images.githubusercontent.com/24375094/208648732-bc3f69e8-90af-4db9-b16a-82f8f9488aa2.png">
@@ -61,11 +59,11 @@ For efficient processing, (the features of) the input data has to be aligned wit
 <img width="814" alt="feature_structure_gan" src="https://user-images.githubusercontent.com/24375094/208645745-041cb414-f287-45bb-8a47-8252fb813ad1.png">
 
 
+## Training
 
-Python library DDSP provides differentiable sound modules (wavetable synthesizer, harmonic synthesizer, reverb) whose parameters can be learned and improved by backwards propagation from the target waveform.
-NNs do not have to learn the intrinsic biases with the help of deep specialized layers. 
+That´s where the ddsp library comes in: it offers sound modules (synthesizers) which are differentiable and therefore can use back propagation to tune their synthesizer parameters (analog to recreating a sound on a synthesizer) and do not learn as much bias as the other models by the help of deep specialized and structured layers. Thanks to specialized layer types we have ***faster training of autoencoders*** and therefore quick feedback, which overs a more convenient workflow than waiting 16 hours for training to finish.
 
-Main features: main frequency, loudness
+
 
 Lowest level: 
 More semantically meaningful: symbolic modelling as a language model --> faster workflow (fast feedback) in comparison to training your model for 16 hours and then see what happened.
