@@ -7,13 +7,28 @@ Magenta: Open Source Research
 ## Challenges    
  
 One song of 3 minutes : 1 Million time steps BUT relevant information is much less! **The art is to extract those featuers** and find a meaningful representation for music. If music is only structured as a bit stream consisting of 1´s and 0´s it is very difficult to know what´s going on.  
-Another widely used method was to just learn all the waveforms, decompose them into sine and cosine waves and finally recreate the soundwave by the means of waveform addition. However, this procedure is inprecise and inefficient because the reconstructed waveform uses more waveforms than necessary and this slows the process.  
-Another problem with waveforms is human perception: some of them sound exactly the same but look different on a spectogram.  
+
+### Phase Alignment
+
+Phases of different simultaneous frequencies have to be aligned precisely else they cancel each other out or become to loud which leads to an overall bad mix.
+
+### Fourier based Models
+Another widely used method was to just learn all the waveform packages, decompose them into sine and cosine waves and finally recreate the soundwave by the means of waveform addition. However, the waveforms overlap and therefore this procedure is inprecise and inefficient.   
+
+### Autogenerative Models
+Autogenerative models try to mitigate these problems by constructing the waveform sample by sample so they do not suffer from the same bias the wave packets. 
+Still, the waveform shapes do not perfectly correlate with human perception because of teacher enforcing / exposure bias during network training.
+For example the waveforms on the right sound the same for humans but cause different perceptual losses for the model. Moreover they need alot of data to work. 
 
 <img width="405" alt="ddsp_challenges_waveforms" src="https://user-images.githubusercontent.com/24375094/208299823-f1c3ce8c-39d0-4bb2-96dc-d0043be9c0e3.png"> 
 
+### Oscillation based Models
 
-Thats why relevant features of audio are first extracted, mainly **amplitude**  (loudness) measured in decibel and the **fundamental frequency** (f0,pitch) measured in Hz. The features are presented as tensors 
+Rather than predicting the waveforms or Fourier coefficients those models directly generates the oscillations. These “analysis/synthesis” models use expert knowledge and hand-tuned heuristics to xtract synthesis parameters (analysis) that are interpretable (**loudness** in dB and **frequencies** in Hz) and can be
+used by the generative algorithm (synthesis). That´s where the ddsp library comes in: it offers sound modules (synthesizers) which are differentiable and therefore can use back propagation to tune their synthesizer parameters (analog to recreating a sound on a synthesizer). 
+
+
+The features are presented as tensors 
 For efficient processing, (the features of) the input data has to be aligned with the architecture of a neural network.  
 
 
