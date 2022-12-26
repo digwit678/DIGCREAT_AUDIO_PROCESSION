@@ -30,25 +30,25 @@ Another widely used method was to just learn all the waveform packages, decompos
 
 ###  Autogenerative Models 
 <p>
-Autogenerative models try to mitigate these problems by constructing the waveform sample by sample so they do not suffer from the same bias the others do. 
-However, the waveform shapes still do not perfectly correlate with human perception and get incoherently corrected during model training:
+Autogenerative models try to mitigate these problems by constructing the waveform sample by sample so they do not suffer from the same bias the others do. </br>
+However, the waveform shapes still do not perfectly correlate with human perception and get incoherently corrected during model training:</br>
 For example the waveforms on the right sound the same for humans but cause different perceptual losses for the model. Moreover they need alot of data to work. </p>
 </div>
 
 <div name="oscillation">    
    
 ###  Back to the Roots: Oscillation based Models  
- 
+ </br>
  ![oscillations](https://user-images.githubusercontent.com/24375094/209557212-ead2037b-8d1d-4eaf-8e4d-ccb0d0fa6801.png)  
  
 <p>   
-Oscillation is defined as <i> the process of repeating variations of any quantity or measure about its equilibrium value in time </i>.  
-Most of the things in nature oscillate (vibrate) at a characteristic (natural) frequency or frequencies.   
-Some familiar examples are the motions of the pendulum of a clock and playground swing, up and down motion of small boats, ocean waves, and motion of the string or reeds on musical instruments.</p>  
+Oscillation is defined as <i> the process of repeating variations of any quantity or measure about its equilibrium value in time </i>.  </br>
+Most of the things in nature oscillate (vibrate) at a characteristic (natural) frequency or frequencies.   </br>
+Some familiar examples are the motions of the pendulum of a clock and playground swing, up and down motion of small boats, ocean waves, and motion of the string or reeds on musical instruments.</p>  </br>
 
 <img width="1000" alt="annotated_synthesis_features" src="https://user-images.githubusercontent.com/24375094/208300159-41de5390-199c-4b90-bd7d-328f2d28b29a.png">   
 <p>  
-Rather than predicting the waveforms or Fourier coefficients those models directly generates the oscillations.   
+Rather than predicting the waveforms or Fourier coefficients those models directly generates the oscillations.  </br>   
 These <i>analysis/synthesis</i> models use expert knowledge and hand-tuned heuristics to xtract synthesis parameters (<i>analysis</i>) that are interpretable (<b> loudness</b> in dB and <b>frequencies</b> in Hz) and can be used by the generative algorithm (<i>synthesis</i>).</p>      
 
 <img width="1000"  height="400" alt="ddsp_harmonic_transformation" src="https://user-images.githubusercontent.com/24375094/208642273-5b044358-22cf-4526-92e7-1e517dc68d4b.png">  
@@ -87,7 +87,7 @@ For efficient processing, (the features of) the input data has to be aligned wit
 ## Training
 <p>
 DDSP achitecture is based on a transformer network.  
-That´s where the ddsp library comes in: it offers sound modules (synthesizers) which are differentiable and therefore can use back propagation to tune their synthesizer parameters (analog to recreating a sound on a synthesizer) and do not learn as much bias as the other models by the help of deep specialized and structured layers. Thanks to specialized layer types we have <b><i>faster training of autoencoders</i></b> and therefore quick feedback, which offers a *more instrument like workflow* than iterating for 16 hours of training until you can implement further changes.</p>
+That´s where the ddsp library comes in: it offers sound modules (synthesizers) which are differentiable and therefore can use back propagation to tune their synthesizer parameters (analog to recreating a sound on a synthesizer) and do not learn as much bias as the other models by the help of deep specialized and structured layers. Thanks to these layer types we have <b><i>faster training of autoencoders</i></b> and therefore quick feedback, which offers a <i>more instrument like workflow</i> than iterating for 16 hours of training until you can implement further changes.</p>
 
 <h3 align="center">  Training of Autoencoders </h3> 
 <img width="1638" alt="ddsp_autoencoder" src="https://user-images.githubusercontent.com/24375094/208653552-06a19ab8-fbaa-4c42-86fc-490c9ce4b0e8.png">
