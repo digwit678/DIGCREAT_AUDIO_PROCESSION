@@ -1,3 +1,5 @@
+<body>  
+ 
 # Discovering Google´s Magenta DDSP 
 
 Digitally process audio data with ML &amp; Magenta 
@@ -7,49 +9,56 @@ Magenta: Open Source Research
 ## Challenges   
 
 ### Representation of Audio
- 
-One song of 3 minutes : 1 Million time steps BUT relevant information is much less! **The art is to extract those featuers** and find a meaningful representation for music. If music is only structured as a bit stream consisting of 1´s and 0´s it is very difficult to know what´s going on.  
 
-#### Bias In Conventional Representations
+<div name="representation">
+One song of 3 minutes : 1 Million time steps BUT relevant information is much less! **The art is to extract those featuers** and find a meaningful representation for music. If music is only structured as a bit stream consisting of 1´s and 0´s it is very difficult to know what´s going on.  </div>  
+
+<div name = "bias">
+### Bias In Conventional Representations
 
 <img width="1000" height="350" alt="ddsp_challenges_waveforms" src="https://user-images.githubusercontent.com/24375094/208299823-f1c3ce8c-39d0-4bb2-96dc-d0043be9c0e3.png"> 
 
-<h5 style="font-size:25vw"> Phase Alignment </h5> 
-For strided convolution waves are represented as overlapping frames, whereas in reality sound moves in different phases and would have to be aligned precisely between two fixed frames or else it would lead to bias.
+###  Phase Alignment  
+<p>
+For strided convolution waves are represented as overlapping frames, whereas in reality sound moves in different phases and would have to be aligned precisely between two fixed frames or else it would lead to bias.</p>
 
-<h5 style="font-size:25vw"> Fourier based Models  </h5> 
-Another widely used method was to just learn all the waveform packages, decompose them into sine and cosine waves and finally recreate the soundwave out of the Fourier waves. However, the waveforms overlap and therefore this procedure leads to bias again.   
+###  Fourier based Models  
+<p>
+Another widely used method was to just learn all the waveform packages, decompose them into sine and cosine waves and finally recreate the soundwave out of the Fourier waves. However, the waveforms overlap and therefore this procedure leads to bias again.  </p>
 
-<h5 style="font-size:25vw"> Autogenerative Models  </h5> 
+###  Autogenerative Models 
+<p>
 Autogenerative models try to mitigate these problems by constructing the waveform sample by sample so they do not suffer from the same bias the others do. 
 However, the waveform shapes still do not perfectly correlate with human perception and get incoherently corrected during model training:
-For example the waveforms on the right sound the same for humans but cause different perceptual losses for the model. Moreover they need alot of data to work. 
+For example the waveforms on the right sound the same for humans but cause different perceptual losses for the model. Moreover they need alot of data to work. </p>
+</div>
 
-
-<h5 style="font-size:10vw"> Back to the Roots: Oscillation based Models  </h5> 
+<div name="oscillation">
+###  Back to the Roots: Oscillation based Models  
  
- ![oscillations](https://user-images.githubusercontent.com/24375094/209557212-ead2037b-8d1d-4eaf-8e4d-ccb0d0fa6801.png)
- 
+ ![oscillations](https://user-images.githubusercontent.com/24375094/209557212-ead2037b-8d1d-4eaf-8e4d-ccb0d0fa6801.png)  
+<p>
 Oscillation is defined as *the process of repeating variations of any quantity or measure about its equilibrium value in time*. 
 Most of the things in nature oscillate (vibrate) at a characteristic (natural) frequency or frequencies.  
-Some familiar examples are the motions of the pendulum of a clock and playground swing, up and down motion of small boats, ocean waves, and motion of the string or reeds on musical instruments.  
+Some familiar examples are the motions of the pendulum of a clock and playground swing, up and down motion of small boats, ocean waves, and motion of the string or reeds on musical instruments.</p>  
 
 <img width="1000" alt="annotated_synthesis_features" src="https://user-images.githubusercontent.com/24375094/208300159-41de5390-199c-4b90-bd7d-328f2d28b29a.png"> 
-
+<p>
 Rather than predicting the waveforms or Fourier coefficients those models directly generates the oscillations. 
-These *analysis/synthesis* models use expert knowledge and hand-tuned heuristics to xtract synthesis parameters (*analysis*) that are interpretable (**loudness** in dB and **frequencies** in Hz) and can be used by the generative algorithm (*synthesis*).    
+These *analysis/synthesis* models use expert knowledge and hand-tuned heuristics to xtract synthesis parameters (*analysis*) that are interpretable (**loudness** in dB and **frequencies** in Hz) and can be used by the generative algorithm (*synthesis*).</p>      
 
 <img width="1000"  height="400" alt="ddsp_harmonic_transformation" src="https://user-images.githubusercontent.com/24375094/208642273-5b044358-22cf-4526-92e7-1e517dc68d4b.png">  
-
-With this representation you can represent a harmonic oscillation precisely solely by using the fundamental frequency (f0), some harmonics (integer multiplications) and the amplitude. This does not imply the model is completely free from bias but it seems to approach the nature and complexity of sound the best yet. 
-
+<p>
+With this representation you can represent a harmonic oscillation precisely solely by using the fundamental frequency (f0), some harmonics (integer multiplications) and the amplitude. This does not imply the model is completely free from bias but it seems to approach the nature and complexity of sound the best yet.</p>   
+</div>
+<div>
 ## Dataset 
 
 ### Sorting 
-
+<p>
 For our project we used the TensorfFlow GAN subset of the NSYNTH dataset. It offers preprocessed samples which contain the most relevant features (amplitude and frequency) ready to use with the DDSP library. 
 For efficient training we *downloaded* the 60 gigabyte of 11 instrument samples instead of streaming them. Since the *data wasn´t storted by instrument type* we had to do this step additionally: We read the TFRecord files into python, parsed them to JSON to identify the instrument label and then wrote them back to TFRecord files. For this to work properly, we had to continuously remove the written objects from the memory such that it did not overflow.  
-All in all this procedure took around 10 hours to sort the samples. 
+All in all this procedure took around 10 hours to sort the samples. </p>
 
 <h4 align="center"> Raw TFRecord String Representation </h4> 
 
@@ -62,15 +71,15 @@ All in all this procedure took around 10 hours to sort the samples.
 
 <h4 align="center">  ### Feature Representation </h4>
 The features are presented as floatList tensors which contain the values over very small timesteps (e.g. length of 64000).
-For efficient processing, (the features of) the input data has to be aligned with the architecture of a neural network.  
+For efficient processing, (the features of) the input data has to be aligned with the architecture of a neural network.  </p>
 
 <p align="center"><img width="814" alt="feature_structure_gan" src="https://user-images.githubusercontent.com/24375094/208645745-041cb414-f287-45bb-8a47-8252fb813ad1.png"></p>
-
-
+</div>
+<div name="training">
 ## Training
-
+<p>
 DDSP achitecture is based on a transformer network.  
-That´s where the ddsp library comes in: it offers sound modules (synthesizers) which are differentiable and therefore can use back propagation to tune their synthesizer parameters (analog to recreating a sound on a synthesizer) and do not learn as much bias as the other models by the help of deep specialized and structured layers. Thanks to specialized layer types we have ***faster training of autoencoders*** and therefore quick feedback, which offers a *more instrument like workflow* than iterating for 16 hours of training until you can implement further changes.
+That´s where the ddsp library comes in: it offers sound modules (synthesizers) which are differentiable and therefore can use back propagation to tune their synthesizer parameters (analog to recreating a sound on a synthesizer) and do not learn as much bias as the other models by the help of deep specialized and structured layers. Thanks to specialized layer types we have ***faster training of autoencoders*** and therefore quick feedback, which offers a *more instrument like workflow* than iterating for 16 hours of training until you can implement further changes.</p>
 
 <h3 align="center">  Training of Autoencoders </h3> 
 <img width="1638" alt="ddsp_autoencoder" src="https://user-images.githubusercontent.com/24375094/208653552-06a19ab8-fbaa-4c42-86fc-490c9ce4b0e8.png">
@@ -81,10 +90,11 @@ That´s where the ddsp library comes in: it offers sound modules (synthesizers) 
 
 <p align="center"> After training of 300 trainingsteps ( ~ 30 seconds) we receive following synth representation of the input. </p>
 <p align="center"><img width="530" alt="ddsp_input_features_synth_parameters" src="https://user-images.githubusercontent.com/24375094/208658561-4a6da72b-4598-44ca-add5-08266a4f71de.png"></p>
+ </div>
+ </body>
 
 
-
-## Notes to Jesse DDSP video
+## Notes to Jesse DDSP video (to be removed) 
 
 
 Lowest level: 
