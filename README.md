@@ -10,30 +10,34 @@ Magenta: Open Source Research
  
 One song of 3 minutes : 1 Million time steps BUT relevant information is much less! **The art is to extract those featuers** and find a meaningful representation for music. If music is only structured as a bit stream consisting of 1´s and 0´s it is very difficult to know what´s going on.  
 
-#### Phase Alignment
+#### Bias In Conventional Representations
+##### Phase Alignment
 
-Phases of different simultaneous frequencies have to be aligned precisely else they cancel each other out or become to loud which leads to an overall bad mix.
 
-#### Fourier based Models
-Another widely used method was to just learn all the waveform packages, decompose them into sine and cosine waves and finally recreate the soundwave out of the Fourier waves. However, the waveforms overlap and therefore this procedure is inprecise and inefficient.   
+For strided convolution waves are represented as overlapping frames, whereas in reality sound moves in different phases and would have to be aligned precisely between two fixed frames or else it would lead to bias.
 
-#### Autogenerative Models
-Autogenerative models try to mitigate these problems by constructing the waveform sample by sample so they do not suffer from the same bias the wave packets. 
-Still, the waveform shapes do not perfectly correlate with human perception because of teacher enforcing / exposure bias during network training.
+##### Fourier based Models
+Another widely used method was to just learn all the waveform packages, decompose them into sine and cosine waves and finally recreate the soundwave out of the Fourier waves. However, the waveforms overlap and therefore this procedure leads to bias again.   
+
+##### Autogenerative Models
+Autogenerative models try to mitigate these problems by constructing the waveform sample by sample so they do not suffer from the same bias the others do. 
+However, the waveform shapes still do not perfectly correlate with human perception and get incoherently corrected during model training:
 For example the waveforms on the right sound the same for humans but cause different perceptual losses for the model. Moreover they need alot of data to work. 
 
 <img width="1000" height="350" alt="ddsp_challenges_waveforms" src="https://user-images.githubusercontent.com/24375094/208299823-f1c3ce8c-39d0-4bb2-96dc-d0043be9c0e3.png"> 
 
-#### Back to the Roots: Oscillation based Models
+##### Back to the Roots: Oscillation based Models
 
-Instead of learning all the features for waveform/Short Fourier Transformation another more selective way would be to learn only the synthesis parameters. 
-Still the model is prone to errors and lacks expressiveness when learning with these annotated synthesizer parameters. 
+Oscillation is defined as the process of repeating variations of any quantity or measure about its equilibrium value in time
+Most of the things in nature oscillate (vibrate) at a characteristic (natural) frequency or frequencies. Some familiar examples are the motions of the pendulum of a clock and playground swing, up and down motion of small boats, ocean waves, and motion of the string or reeds on musical instruments
+
 
 <img width="1000" alt="annotated_synthesis_features" src="https://user-images.githubusercontent.com/24375094/208300159-41de5390-199c-4b90-bd7d-328f2d28b29a.png"> 
 
-Based on transformer architecture which are used for language processing. 
-Rather than predicting the waveforms or Fourier coefficients those models directly generates the oscillations. These “analysis/synthesis” models use expert knowledge and hand-tuned heuristics to xtract synthesis parameters (analysis) that are interpretable (**loudness** in dB and **frequencies** in Hz) and can be
-used by the generative algorithm (synthesis). With this representation you can represent a harmonic oscillation precisely solely by using the fundamental frequency (f0), some harmonics (integer multiplications) and the amplitude. 
+The achitecture is based on a transformer network. 
+Rather than predicting the waveforms or Fourier coefficients those models directly generates the oscillations. 
+These *analysis/synthesis* models use expert knowledge and hand-tuned heuristics to xtract synthesis parameters (*analysis*) that are interpretable (**loudness** in dB and **frequencies** in Hz) and can be used by the generative algorithm (*synthesis*).  
+With this representation you can represent a harmonic oscillation precisely solely by using the fundamental frequency (f0), some harmonics (integer multiplications) and the amplitude. This does not imply the model is completely free from bias but it seems to approach the nature and complexity of sound the best yet. 
 
 <img width="1000"  height="400" alt="ddsp_harmonic_transformation" src="https://user-images.githubusercontent.com/24375094/208642273-5b044358-22cf-4526-92e7-1e517dc68d4b.png">
 
