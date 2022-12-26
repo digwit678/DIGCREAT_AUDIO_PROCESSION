@@ -1,4 +1,4 @@
-<body>  
+<body name="ddsp">  
  
 # Discovering Google´s Magenta DDSP 
 
@@ -51,7 +51,7 @@ These *analysis/synthesis* models use expert knowledge and hand-tuned heuristics
 <p>
 With this representation you can represent a harmonic oscillation precisely solely by using the fundamental frequency (f0), some harmonics (integer multiplications) and the amplitude. This does not imply the model is completely free from bias but it seems to approach the nature and complexity of sound the best yet.</p>   
 </div>
-<div>
+<div name="data">
 ## Dataset 
 
 ### Sorting 
