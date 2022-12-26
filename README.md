@@ -14,13 +14,13 @@ One song of 3 minutes : 1 Million time steps BUT relevant information is much le
 
 <img width="1000" height="350" alt="ddsp_challenges_waveforms" src="https://user-images.githubusercontent.com/24375094/208299823-f1c3ce8c-39d0-4bb2-96dc-d0043be9c0e3.png"> 
 
-<h5 style="font-size:15vw"> Phase Alignment </h5> 
+<h5 style="font-size:25vw"> Phase Alignment </h5> 
 For strided convolution waves are represented as overlapping frames, whereas in reality sound moves in different phases and would have to be aligned precisely between two fixed frames or else it would lead to bias.
 
-<h5 style="font-size:15vw"> Fourier based Models  </h5> 
+<h5 style="font-size:25vw"> Fourier based Models  </h5> 
 Another widely used method was to just learn all the waveform packages, decompose them into sine and cosine waves and finally recreate the soundwave out of the Fourier waves. However, the waveforms overlap and therefore this procedure leads to bias again.   
 
-<h5 style="font-size:15vw"> Autogenerative Models  </h5> 
+<h5 style="font-size:25vw"> Autogenerative Models  </h5> 
 Autogenerative models try to mitigate these problems by constructing the waveform sample by sample so they do not suffer from the same bias the others do. 
 However, the waveform shapes still do not perfectly correlate with human perception and get incoherently corrected during model training:
 For example the waveforms on the right sound the same for humans but cause different perceptual losses for the model. Moreover they need alot of data to work. 
@@ -72,14 +72,14 @@ For efficient processing, (the features of) the input data has to be aligned wit
 DDSP achitecture is based on a transformer network.  
 That´s where the ddsp library comes in: it offers sound modules (synthesizers) which are differentiable and therefore can use back propagation to tune their synthesizer parameters (analog to recreating a sound on a synthesizer) and do not learn as much bias as the other models by the help of deep specialized and structured layers. Thanks to specialized layer types we have ***faster training of autoencoders*** and therefore quick feedback, which offers a *more instrument like workflow* than iterating for 16 hours of training until you can implement further changes.
 
-### Training of autoencoders
+<h3 align="center">  Training of Autoencoders </h3> 
 <img width="1638" alt="ddsp_autoencoder" src="https://user-images.githubusercontent.com/24375094/208653552-06a19ab8-fbaa-4c42-86fc-490c9ce4b0e8.png">
 
-### Python Code
+<h3 align="center">Python Code <h3 align="center">
 <p align="center"><img width="500" height="800" alt="colab_tut_training_basic_code_python_soundmodules" src="https://user-images.githubusercontent.com/24375094/208652789-f7b99ce7-d19c-435a-af41-4a02ec325554.png"></p>
 
 
-After training of 300 trainingsteps ( ~ 30 seconds) we receive following synth representation of the input.
+<p align="center"> After training of 300 trainingsteps ( ~ 30 seconds) we receive following synth representation of the input. </p>
 <p align="center"><img width="530" alt="ddsp_input_features_synth_parameters" src="https://user-images.githubusercontent.com/24375094/208658561-4a6da72b-4598-44ca-add5-08266a4f71de.png"></p>
 
 
