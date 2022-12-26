@@ -14,19 +14,19 @@ One song of 3 minutes : 1 Million time steps BUT relevant information is much le
 
 <img width="1000" height="350" alt="ddsp_challenges_waveforms" src="https://user-images.githubusercontent.com/24375094/208299823-f1c3ce8c-39d0-4bb2-96dc-d0043be9c0e3.png"> 
 
-##### Phase Alignment  
+<h5 style="font-size:15vw"> Phase Alignment </h5> 
 For strided convolution waves are represented as overlapping frames, whereas in reality sound moves in different phases and would have to be aligned precisely between two fixed frames or else it would lead to bias.
 
-##### Fourier based Models  
+<h5 style="font-size:15vw"> Fourier based Models  </h5> 
 Another widely used method was to just learn all the waveform packages, decompose them into sine and cosine waves and finally recreate the soundwave out of the Fourier waves. However, the waveforms overlap and therefore this procedure leads to bias again.   
 
-##### Autogenerative Models  
+<h5 style="font-size:15vw"> Autogenerative Models  </h5> 
 Autogenerative models try to mitigate these problems by constructing the waveform sample by sample so they do not suffer from the same bias the others do. 
 However, the waveform shapes still do not perfectly correlate with human perception and get incoherently corrected during model training:
 For example the waveforms on the right sound the same for humans but cause different perceptual losses for the model. Moreover they need alot of data to work. 
 
 
-##### Back to the Roots: Oscillation based Models  
+<h5 style="font-size:10vw"> Back to the Roots: Oscillation based Models  </h5> 
  
  ![oscillations](https://user-images.githubusercontent.com/24375094/209557212-ead2037b-8d1d-4eaf-8e4d-ccb0d0fa6801.png)
  
@@ -55,12 +55,12 @@ All in all this procedure took around 10 hours to sort the samples.
 
 <p align="center"><img width="788" alt="tfrecord_raw_string" src="https://user-images.githubusercontent.com/24375094/208647954-7a3f98de-d8fb-4b52-92b9-fac7517f3599.png"></p>
 
-#### TFRecord JSON Representation 
+<h4 align="center"> #### TFRecord JSON Representation </h4> 
 
 
 <p align="center"><img width="796" alt="tfrecord_json_representation" src="https://user-images.githubusercontent.com/24375094/208648732-bc3f69e8-90af-4db9-b16a-82f8f9488aa2.png"></p>
 
-### Feature Representation 
+<h4 align="center">  ### Feature Representation </h4>
 The features are presented as floatList tensors which contain the values over very small timesteps (e.g. length of 64000).
 For efficient processing, (the features of) the input data has to be aligned with the architecture of a neural network.  
 
