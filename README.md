@@ -49,20 +49,20 @@ Some familiar examples are the motions of the pendulum of a clock and playground
 
 <img width="1000" alt="annotated_synthesis_features" src="https://user-images.githubusercontent.com/24375094/208300159-41de5390-199c-4b90-bd7d-328f2d28b29a.png">   
 <p>  
-Rather than predicting the waveforms or Fourier coefficients those models directly generates the oscillations.  </br>   
+
+Rather than predicting the waveforms or Fourier coefficients those models directly generates the oscillations.    
 These <i>analysis/synthesis</i> models use expert knowledge and hand-tuned heuristics to xtract synthesis parameters (<i>analysis</i>) that are interpretable (<b> loudness</b> in dB and <b>frequencies</b> in Hz) and can be used by the generative algorithm (<i>synthesis</i>).</p>      
 
 <img width="1000"  height="400" alt="ddsp_harmonic_transformation" src="https://user-images.githubusercontent.com/24375094/208642273-5b044358-22cf-4526-92e7-1e517dc68d4b.png">  
 <br></br>
 
 <div align="center">
-With this features you can represent a harmonic oscillation precisely solely by using
+With this features you <i> can represent a harmonic oscillation precisely solely by using </i>
  
  <br></br>
  <ul align="center"> Fundamental Frequency F0 (Hz) </ul>  
  <ul align="center"> Harmonics (F0 multiplications: odd, even, ...) </ul>  
- <ul align="center"> Amplitude (dB) </ul>  
- 
+ <ul align="center"> Amplitude (dB) </ul>
   <br></br> 
  </div>   
  This representation does not imply the model is completely free from bias but it seems to approach the nature and complexity of sound the best yet.  
@@ -88,7 +88,12 @@ All in all this procedure took around 10 hours to sort the samples. </p>
 
 <p align="center"><img width="796" alt="tfrecord_json_representation" src="https://user-images.githubusercontent.com/24375094/208648732-bc3f69e8-90af-4db9-b16a-82f8f9488aa2.png"></p>
 
+<h4 align="center"> Adjusting Features names </h4> 
+
+<p align="center">To get our TFR data working with the DDSP (e.g. notebook <i> training </i>) we had to adjust the classes slightly do accept the feature names with slashes instead of dashes (f0_hz = f0/hz) else we had to do the whole sorting process again to change feature names </p>
+
 <h3 align="center">   Feature Representation </h3>
+<p align="center">
 The features are presented as floatList tensors which contain the values over very small timesteps (e.g. length of 64000). </br>  
 For efficient processing, (the features of) the input data has to be aligned with the architecture of a neural network.  </p>
 
@@ -115,6 +120,7 @@ Thanks to these layer types we have <b><i>faster training of autoencoders</i></b
 <p align="center"><img width="530" alt="ddsp_input_features_synth_parameters" src="https://user-images.githubusercontent.com/24375094/208658561-4a6da72b-4598-44ca-add5-08266a4f71de.png"></p>
  </div>
  </body>
+
 
 
 ## Notes to Jesse DDSP video (to be removed) 
