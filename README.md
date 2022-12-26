@@ -13,6 +13,7 @@ One song of 3 minutes : 1 Million time steps BUT relevant information is much le
 #### Bias In Conventional Representations
 
 <img width="1000" height="350" alt="ddsp_challenges_waveforms" src="https://user-images.githubusercontent.com/24375094/208299823-f1c3ce8c-39d0-4bb2-96dc-d0043be9c0e3.png"> 
+
 ##### Phase Alignment  
 For strided convolution waves are represented as overlapping frames, whereas in reality sound moves in different phases and would have to be aligned precisely between two fixed frames or else it would lead to bias.
 
