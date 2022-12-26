@@ -13,8 +13,8 @@ Magenta: Open Source Research
 <div name="representation">
 One song of 3 minutes : 1 Million time steps BUT relevant information is much less! **The art is to extract those featuers** and find a meaningful representation for music. If music is only structured as a bit stream consisting of 1´s and 0´s it is very difficult to know what´s going on.  </div>  
 
-<div name = "bias">
-### Bias In Conventional Representations
+<div name = "bias">  
+### Bias In Conventional Representations  
 
 <img width="1000" height="350" alt="ddsp_challenges_waveforms" src="https://user-images.githubusercontent.com/24375094/208299823-f1c3ce8c-39d0-4bb2-96dc-d0043be9c0e3.png"> 
 
