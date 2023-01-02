@@ -10,21 +10,7 @@ We decided to work mostly on Google Colab because it´s  much more convenient fo
 
 We accomodated ourselves to DDSP by going through a lot of the tutorials (<a href="https://github.com/magenta/ddsp/tree/main/ddsp/colab/tutorials">DDSP TUTORIALS</a> ). After that we used our gathered TFR data for small training on a single instrument type and then "predict" a sample of another instrument with the help of an ([adjusted DDSP notebook](https://github.com/digwit678/DIGCREAT_AUDIO_PROCESSION/tree/main/ddsp_notebooks_adjusted/small_training_trials)).     "Prediction" in this sense means, you predict how that sample (e.g. a keyboard tone) would sound with the sound characteristics (timbre) of a different instrument (e.g. string) or simpler: How would a keyboard sound if it played strings ?  
 
-# Citation 
 
-All notebook sources in the folder ddsp_notebooks_adjusted belong to <a href="https://github.com/magenta/ddsp">Google Magenta´s DDSP</a> research team.  
- <a href="https://colab.research.google.com/github/magenta/ddsp/blob/main/ddsp/colab/tutorials/3_training.ipynb">training on single instrument notebook</a>
- <a href="https://github.com/magenta/ddsp/blob/main/ddsp/colab/demos/timbre_transfer.ipynb">timbre transfer notebook</a>
- 
-
-@inproceedings{  
-  engel2020ddsp,  
-  title={DDSP: Differentiable Digital Signal Processing},  
-  author={Jesse Engel and Lamtharn (Hanoi) Hantrakul and Chenjie Gu and Adam Roberts},  
-  booktitle={International Conference on Learning Representations},  
-  year={2020},  
-  url={https://openreview.net/forum?id=B1x1ma4tDr}  
-}  
 
 
 
@@ -163,6 +149,31 @@ Thanks to these layer types we have <b><i>faster training of autoencoders</i></b
  </body>
 
 
+# Citation 
+
+All notebook sources in the folder ddsp_notebooks_adjusted belong to <a href="https://github.com/magenta/ddsp">Google Magenta´s DDSP</a> research team.  
+ <a href="https://colab.research.google.com/github/magenta/ddsp/blob/main/ddsp/colab/tutorials/3_training.ipynb">training on single instrument notebook</a>
+ <a href="https://github.com/magenta/ddsp/blob/main/ddsp/colab/demos/timbre_transfer.ipynb">timbre transfer notebook</a>
+ 
+
+@inproceedings{  
+  engel2020ddsp,  
+  title={DDSP: Differentiable Digital Signal Processing},  
+  author={Jesse Engel and Lamtharn (Hanoi) Hantrakul and Chenjie Gu and Adam Roberts},  
+  booktitle={International Conference on Learning Representations},  
+  year={2020},  
+  url={https://openreview.net/forum?id=B1x1ma4tDr}  
+}  
+
+# Possible Next Steps
+
+Since the time for this project was scarce and the complexity relatively high we did not yet complete a full big training. To continue with the gathered data and lessons learned from a small training on a singular instrument, options for long training would be: 
+
+- try bigger training on the timbre transfer notebook
+- train a VST on the VST notebook 
+- ...
+  
+just have a look at [ddsp demos](https://github.com/magenta/ddsp/tree/main/ddsp/colab/demos - there are lots of (new) ideas !) 
 
 ## Notes to Jesse DDSP video (to be removed) 
 
