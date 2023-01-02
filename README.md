@@ -2,11 +2,11 @@
  
 # Discovering Google´s Magenta DDSP 
 
-Digitally process audio data with ML &amp; Magenta 
+***Digitally process audio data with ML*** 
 
 
-For the course Digital Creativity we explored the open source Google Magenta DDSP library. We decided to work mostly on Google Colab because it´s  much more convenient for us regarding installations, dependencies and training on GPU. 
-The only exception to this is the dataset: We downloaded it to a local disk from Google Clouds and and also sorted it locally. There would be also notebooks on converting your own data to the needed format (TFR) when working with DDSP. Since we did not have enough of the right .wav data we used a TFR dataset with prepared MIDI samples. 
+For the course Digital Creativity we explored the open source library Google Magenta DDSP.  
+We decided to work mostly on Google Colab because it´s  much more convenient for us regarding installations, dependencies and training on GPU. The only exception to this is working with the dataset the dataset: We downloaded it to a local disk from Google Clouds and and also sorted it locally. There would be also notebooks on converting your own data to the needed format (TFR) when working with DDSP. Since we did not have enough of the right .wav data we used a TFR dataset with prepared MIDI samples. 
 
 We accomodated ourselves to DDSP by going through a lot of the tutorials (<a href="https://github.com/magenta/ddsp/tree/main/ddsp/colab/tutorials">DDSP TUTORIALS</a> ). After that we used our gathered TFR data for small training on a single instrument type and then "predict" a sample of another instrument with the help of an ([adjusted DDSP notebook](https://github.com/digwit678/DIGCREAT_AUDIO_PROCESSION/tree/main/ddsp_notebooks_adjusted/small_training_trials)).     "Prediction" in this sense means, you predict how that sample (e.g. a keyboard tone) would sound with the sound characteristics (timbre) of a different instrument (e.g. string) or simpler: How would a keyboard sound if it played strings ?  
 
@@ -17,14 +17,14 @@ All notebook sources in the folder ddsp_notebooks_adjusted belong to <a href="ht
  <a href="https://github.com/magenta/ddsp/blob/main/ddsp/colab/demos/timbre_transfer.ipynb">timbre transfer notebook</a>
  
 
-@inproceedings{
-  engel2020ddsp,
-  title={DDSP: Differentiable Digital Signal Processing},
-  author={Jesse Engel and Lamtharn (Hanoi) Hantrakul and Chenjie Gu and Adam Roberts},
-  booktitle={International Conference on Learning Representations},
-  year={2020},
-  url={https://openreview.net/forum?id=B1x1ma4tDr}
-}
+@inproceedings{  
+  engel2020ddsp,  
+  title={DDSP: Differentiable Digital Signal Processing},  
+  author={Jesse Engel and Lamtharn (Hanoi) Hantrakul and Chenjie Gu and Adam Roberts},  
+  booktitle={International Conference on Learning Representations},  
+  year={2020},  
+  url={https://openreview.net/forum?id=B1x1ma4tDr}  
+}  
 
 
 
