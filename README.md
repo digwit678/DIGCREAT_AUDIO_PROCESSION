@@ -14,10 +14,9 @@ We accomodated ourselves to DDSP by going through a lot of the tutorials (<a hre
 
 
 
-# Theory
-## Challenges   
+## Theory
 
-### Representation of Audio
+### Challenge: Representation of Audio
 
 <div name="representation">  
  
