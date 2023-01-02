@@ -173,9 +173,9 @@ Since the time for this project was scarce and the complexity relatively high we
 - train a VST on the VST notebook 
 - ...
   
-just have a look at [ddsp demos](https://github.com/magenta/ddsp/tree/main/ddsp/colab/demos - there are lots of (new) ideas !) 
+just have a look at [ddsp demos] (https://github.com/magenta/ddsp/tree/main/ddsp/colab/demos - there are lots of (new) ideas once your familiar with the library and data!
 
-## Notes to Jesse DDSP video (to be removed) 
+## Notes to Jesse DDSP video (to be removed) (youtube link for video, else delete) 
 
 
 Lowest level: 
