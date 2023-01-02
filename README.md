@@ -72,8 +72,23 @@ With this features you <i> can represent a harmonic oscillation precisely solely
 <div name="data">  
  
 ## Dataset 
+ 
+### Downloading
+ 
+for more efficient training we downloaded our whole dataset from *Google Clouds* with the following link: https://console.cloud.google.com/storage/browser/tfds-data/datasets/nsynth;tab=objects?prefix=&forceOnObjectsSortingFiltering=false
+ 
+
+
+to download multiple items at once you need to use gsutil (https://cloud.google.com/storage/docs/gsutil_install). This command requires to have parts of Google CLI installed on your computer  
+
+ 1.) install Google CLI (https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe)  
+ 2.) make sure gsutil is installed on Google CLI  
+ 3.) download files with gsutil command from terminal    
+ 
+![download_nsynth](https://user-images.githubusercontent.com/24375094/210249830-4ab42404-6a49-4c02-a450-cb11722f40c9.jpg)
 
 ### Sorting 
+ 
 <p>
 For our project we used the TensorfFlow GAN subset of the NSYNTH dataset. It offers preprocessed samples which contain the most relevant features (amplitude and frequency) ready to use with the DDSP library. </br>
 For efficient training we <i> downloaded </i> the 60 gigabyte of 11 instrument samples instead of streaming them. Since the <i> data wasn´t storted by instrument type </i> we had to do this step additionally: We read the TFRecord files into python, parsed them to JSON to identify the instrument label and then wrote them back to TFRecord files. For this to work properly, we had to <b>continuously remove the written objects from the memory such that it did not overflow</b>.  
