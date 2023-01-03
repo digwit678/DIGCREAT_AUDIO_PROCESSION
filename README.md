@@ -192,7 +192,7 @@ All notebook sources in the folder ddsp_notebooks_adjusted belong to <a href="ht
   url={https://openreview.net/forum?id=B1x1ma4tDr}  
 }  
 ```
-
+Some pictures in the README are copied from the [DDSP paper](https://openreview.net/pdf?id=B1x1ma4tDr)
 
 
 # Possible Next Steps
