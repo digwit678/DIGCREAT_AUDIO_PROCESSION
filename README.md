@@ -170,9 +170,24 @@ Thanks to these layer types we have <b><i>faster training of autoencoders</i></b
 <br></br>
  </div>
  
- 
-# Citation 
+## Possible Next Steps
 
+Since the time for this project was scarce and the complexity relatively high we did not yet complete a full big training. To continue with the gathered data and lessons learned from a small training on a singular instrument, options for long training would be: 
+
+- try bigger training on the timbre transfer notebook
+- train a VST on the VST notebook 
+- ...
+
+we also prepared [the timbre transfer notebook](https://github.com/digwit678/DIGCREAT_AUDIO_PROCESSION/tree/main/ddsp_notebooks_adjusted/notebooks_to_continue) since the original version with the updated dependencies did not work. 
+
+for more content, just have a look at [ddsp demos](https://github.com/magenta/ddsp/tree/main/ddsp/colab/demos): there are a lot of (new) ideas once your familiar with the library and the data!
+<br></br>
+
+## Citation 
+
+All notebook sources in the folder ddsp_notebooks_adjusted belong to <a href="https://github.com/magenta/ddsp">Google Magenta´s DDSP</a> research team.  
+ <a href="https://colab.research.google.com/github/magenta/ddsp/blob/main/ddsp/colab/tutorials/3_training.ipynb">training on single instrument notebook</a>
+ <a href="https://github.com/magenta/ddsp/blob/main/ddsp/colab/demos/timbre_transfer.ipynb">timbre transfer notebook</a>
 <br></br>
 
 ```
@@ -191,11 +206,7 @@ Thanks to these layer types we have <b><i>faster training of autoencoders</i></b
 # limitations under the License.
 # ==============================================================================
 ```
-<br></br>
 
-All notebook sources in the folder ddsp_notebooks_adjusted belong to <a href="https://github.com/magenta/ddsp">Google Magenta´s DDSP</a> research team.  
- <a href="https://colab.research.google.com/github/magenta/ddsp/blob/main/ddsp/colab/tutorials/3_training.ipynb">training on single instrument notebook</a>
- <a href="https://github.com/magenta/ddsp/blob/main/ddsp/colab/demos/timbre_transfer.ipynb">timbre transfer notebook</a>
  
 ```
 @inproceedings{  
@@ -218,18 +229,6 @@ All notebook sources in the folder ddsp_notebooks_adjusted belong to <a href="ht
 [waves oscillation](https://www.google.com/search?q=waves&tbm=isch&ved=2ahUKEwiW98n92Kv8AhUzw7sIHaxHCpQQ2-cCegQIABAA&oq=waves&gs_lcp=CgNpbWcQAzIECAAQQzIECAAQQzIECAAQQzIECAAQQzIECAAQQzIECAAQQzIECAAQQzIECAAQQzIFCAAQgAQyBQgAEIAEOggIABCABBCxA1DPBFiBCGDCCmgAcAB4AIABSIgBhQOSAQE2mAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=9Ea0Y5atJ7OG7_UPrI-poAk&bih=881&biw=1824&rlz=1C1JJTC_enCH974CH975)
 
 <br></br>
-
-## Possible Next Steps
-
-Since the time for this project was scarce and the complexity relatively high we did not yet complete a full big training. To continue with the gathered data and lessons learned from a small training on a singular instrument, options for long training would be: 
-
-- try bigger training on the timbre transfer notebook
-- train a VST on the VST notebook 
-- ...
-
-we also prepared [the timbre transfer notebook](https://github.com/digwit678/DIGCREAT_AUDIO_PROCESSION/tree/main/ddsp_notebooks_adjusted/notebooks_to_continue) since the original version with the updated dependencies did not work. 
-
-for more content, just have a look at [ddsp demos](https://github.com/magenta/ddsp/tree/main/ddsp/colab/demos): there are a lot of (new) ideas once your familiar with the library and the data!
 
 ## Further Links
 
