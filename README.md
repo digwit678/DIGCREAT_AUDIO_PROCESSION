@@ -19,7 +19,7 @@ We accomodated ourselves to DDSP by going through a lot of the tutorials (<a hre
 
 ## Theory
 
-### Challenge: Representation of Audio
+ ### <i>Challenge: Representation of Audio</i>
 
 <div name="representation">  
  
@@ -28,19 +28,19 @@ One song of 3 minutes : 1 Million time steps **BUT** relevant information is muc
  
 <div name = "bias">  
  
-### Bias In Conventional Representations  
+### <i>Bias In Conventional Representations</i>  
 
 <img width="1000" height="350" alt="ddsp_challenges_waveforms" src="https://user-images.githubusercontent.com/24375094/208299823-f1c3ce8c-39d0-4bb2-96dc-d0043be9c0e3.png"> 
 
-###  Phase Alignment  
+###  <i>Phase Alignment</i>  
 <p>
 For strided convolution waves are represented as overlapping frames, whereas in reality sound moves in different phases and would have to be aligned precisely between two fixed frames or else it would lead to bias.</p>
 
-###  Fourier based Models  
+###  <i>Fourier based Models</i>  
 <p>
 Another widely used method was to just learn all the waveform packages, decompose them into sine and cosine waves and finally recreate the soundwave out of the Fourier waves. However, the waveforms overlap and therefore this procedure leads to bias again.  </p>
 
-###  Autogenerative Models 
+###  <i>Autogenerative Models</i> 
 <p>
 Autogenerative models try to mitigate these problems by constructing the waveform sample by sample so they do not suffer from the same bias the others do. </br>
 However, the waveform shapes still do not perfectly correlate with human perception and get incoherently corrected during model training:</br>
@@ -49,7 +49,7 @@ For example the waveforms on the right sound the same for humans but cause diffe
 
 <div name="oscillation">    
    
-###  Back to the Roots: Oscillation based Models  
+###  <i>Back to the Roots: Oscillation based Models</i>  
 
  ![oscillations](https://user-images.githubusercontent.com/24375094/209557212-ead2037b-8d1d-4eaf-8e4d-ccb0d0fa6801.png)  
  
@@ -88,7 +88,7 @@ With this features you <i> can represent a harmonic oscillation precisely solely
 For our first trial we used the [nsynth/full dataset](https://console.cloud.google.com/storage/browser/tfds-data/datasets/nsynth/full?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22))&prefix=&forceOnObjectsSortingFiltering=false) but then realized the features weren´t optimally suited for working with DDSP so we changed to the [nsynth/gansynth_subset.f0_and_loudness/2.3.3.](https://console.cloud.google.com/storage/browser/tfds-data/datasets/nsynth/gansynth_subset.f0_and_loudness/2.3.3) with f0 and loudness features which were missing.   
 
  
-### Downloading
+### <i>Download</i>
 
 If you would like to try out a training on a single instrument without downloading the whole dataset we uploaded two TFR files (containing a lot of samples!) for string and keyboard ([data folder](https://github.com/digwit678/DIGCREAT_AUDIO_PROCESSION/tree/main/data)) and used up our whole LF/Large File Storage Github resources. The data there should be enough to train on strings samples (xor keyboard) and predict with one keyboard sample (xor string)
 
@@ -107,7 +107,7 @@ to download multiple items at once you need to [use gsutil](https://cloud.google
   
 ![download_nsynth](https://user-images.githubusercontent.com/24375094/210249830-4ab42404-6a49-4c02-a450-cb11722f40c9.jpg)
 
-### Sorting 
+### <i>Sorting</i> 
  
 <p>
 For our project we used the TensorfFlow GAN subset of the NSYNTH dataset. It offers preprocessed samples which contain the most relevant features (amplitude and frequency) ready to use with the DDSP library. </br>
@@ -115,20 +115,20 @@ For efficient training we <i> downloaded </i> the 11 instrument samples instead 
 We read the TFRecord files into Python, parsed them to JSON to identify the instrument label and then wrote them back to TFRecord files with <a href="https://github.com/digwit678/DIGCREAT_AUDIO_PROCESSION/blob/main/data/data_sorting/NSYNTH-TFRECORD-SORT.ipynb">the help of this notebook</a>. For this to work properly, we had to <b>continuously remove the written objects from the memory such that it did not overflow</b>.  
 All in all this procedure took around 10 hours to sort the samples for the first dataset and then significantly less time for the second (samller) set (30-60 minutes). </p>
 
-<h4 align="center"> Raw TFRecord String Representation </h4> 
+<h4 align="center"> <i>Raw TFRecord String Representation</i> </h4> 
 
 <p align="center"><img width="788" alt="tfrecord_raw_string" src="https://user-images.githubusercontent.com/24375094/208647954-7a3f98de-d8fb-4b52-92b9-fac7517f3599.png"></p>
 
-<h4 align="center"> TFRecord JSON Representation </h4> 
+<h4 align="center"> <i>TFRecord JSON Representation</i> </h4> 
 
 
 <p align="center"><img width="796" alt="tfrecord_json_representation" src="https://user-images.githubusercontent.com/24375094/208648732-bc3f69e8-90af-4db9-b16a-82f8f9488aa2.png"></p>
 
-<h4 align="center"> Adjusting Features names </h4> 
+<h4 align="center"> <i>Adjusting Features names</i> </h4> 
 
 <p align="center">To get our TFR data working with the DDSP (e.g. notebook <i> training </i>) we had to adjust the classes slightly do accept the feature names with slashes instead of dashes (f0_hz = f0/hz) else we had to do the whole sorting process again to change feature names </p>
 
-<h4 align="center">   Feature Representation </h4>
+<h4 align="center">   <i>Feature Representation</i> </h4>
 <p align="center">
 The features are presented as floatList tensors which contain the values over very small timesteps (e.g. length of 64000). </br>  
 For efficient processing, (the features of) the input data has to be aligned with the architecture of a neural network.  </p>
@@ -145,7 +145,7 @@ DDSP achitecture is based on a transformer network.  </br>
 That´s where the DDSP library comes in: it offers sound modules (synthesizers) which are differentiable and therefore can use back propagation to tune their synthesizer parameters (analog to recreating a sound on a synthesizer) and do not learn as much bias as the other models by the help of deep specialized and structured layers. </br>
 Thanks to these layer types we have <b><i>faster training of autoencoders</i></b> and therefore quick feedback, which offers a <i>more instrument like workflow</i> than iterating for 16 hours of training until you can implement further changes.</p>
 
-<h3 align="center"> Training of Autoencoders </h3> 
+<h3 align="center"> <i>Training of Autoencoders</i> </h3> 
 <p align="center"><img width="1638" alt="ddsp_autoencoder" src="https://user-images.githubusercontent.com/24375094/208653552-06a19ab8-fbaa-4c42-86fc-490c9ce4b0e8.png"></p>
 <p align="center"> 
  For training on a TFR dataset we recommend using 
@@ -153,10 +153,10 @@ Thanks to these layer types we have <b><i>faster training of autoencoders</i></b
 </p>
 
 
-<h3 align="center">Python Code for Layers/Synths</h3>
+<h3 align="center"> <i>Python Code for Layers/Synths</i> </h3>
 <p align="center"><img width="500" height="800" alt="colab_tut_training_basic_code_python_soundmodules" src="https://user-images.githubusercontent.com/24375094/208652789-f7b99ce7-d19c-435a-af41-4a02ec325554.png"></p>
 
-<h3 align="center">Results </h3>
+<h3 align="center"> <i>Results</i> </h3>
 <p> We received the following outputs when training with 3 different synthesizers (= neural layers) trained on the same string data (until learning curve flattening, usually around 4.5-5) and predicted on the same keyboard sample </p>
 
 
