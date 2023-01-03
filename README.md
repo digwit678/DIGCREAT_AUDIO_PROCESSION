@@ -1,6 +1,6 @@
 <body name="ddsp">  
  
-# Discovering Google´s Magenta DDSP 
+# Discovering Google Magenta´s DDSP library
 
 ***Digitally process audio data with ML*** 
 
