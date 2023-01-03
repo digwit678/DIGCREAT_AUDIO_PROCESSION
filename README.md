@@ -82,7 +82,8 @@ With this features you <i> can represent a harmonic oscillation precisely solely
 <div name="data">  
  
 ## Dataset 
- 
+
+
 For our first trial we used the [nsynth/full dataset](https://console.cloud.google.com/storage/browser/tfds-data/datasets/nsynth/full?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22))&prefix=&forceOnObjectsSortingFiltering=false) but then realized the features weren´t optimally suited for working with DDSP so we changed to the [nsynth/gansynth_subset.f0_and_loudness/2.3.3.](https://console.cloud.google.com/storage/browser/tfds-data/datasets/nsynth/gansynth_subset.f0_and_loudness/2.3.3) with f0 and loudness features which were missing.   
  
 ### Downloading
@@ -107,8 +108,9 @@ to download multiple items at once you need to [use gsutil](https://cloud.google
  
 <p>
 For our project we used the TensorfFlow GAN subset of the NSYNTH dataset. It offers preprocessed samples which contain the most relevant features (amplitude and frequency) ready to use with the DDSP library. </br>
-For efficient training we <i> downloaded </i> the 60 gigabyte of 11 instrument samples instead of streaming them. Since the <i> data wasn´t storted by instrument type </i> we had to do this step additionally: We read the TFRecord files into python, parsed them to JSON to identify the instrument label and then wrote them back to TFRecord files. For this to work properly, we had to <b>continuously remove the written objects from the memory such that it did not overflow</b>.  
-All in all this procedure took around 10 hours to sort the samples. </p>
+For efficient training we <i> downloaded </i> the 11 instrument samples instead of streaming them. Since the <i> data wasn´t storted by instrument type </i> we had to do this step additionally to observe the effects of training on a single instrument type.   
+We read the TFRecord files into Python, parsed them to JSON to identify the instrument label and then wrote them back to TFRecord files. For this to work properly, we had to <b>continuously remove the written objects from the memory such that it did not overflow</b>.  
+All in all this procedure took around 10 hours to sort the samples for the first dataset and then significantly less time for the second (samller) set (30-60 minutes). </p>
 
 <h4 align="center"> Raw TFRecord String Representation </h4> 
 
@@ -147,17 +149,17 @@ Thanks to these layer types we have <b><i>faster training of autoencoders</i></b
 <p align="center"><img width="500" height="800" alt="colab_tut_training_basic_code_python_soundmodules" src="https://user-images.githubusercontent.com/24375094/208652789-f7b99ce7-d19c-435a-af41-4a02ec325554.png"></p>
 
 
-<p align="center"> We received the following outputs when training with 3 different synthesizers (= neural layers) trained on the same data (until learning curve flattening, usually around 4.5-5) </p>
+<p align="center"> We received the following outputs when training with 3 different synthesizers (= neural layers) trained on the same string data (until learning curve flattening, usually around 4.5-5) and predicted on the same keyboard sample </p>
 
 
 <p align="center"><img width="522" alt="harmonic_training_string" src="https://user-images.githubusercontent.com/24375094/210359126-43c3820a-a45d-4dc1-8f8c-b4a73ef08485.png"><p align="center"><a href="https://github.com/digwit678/DIGCREAT_AUDIO_PROCESSION/blob/main/ddsp_notebooks_adjusted/small_training_trials/3_training_string_340_keyboard_harmonic.ipynb">Harmonic Synthesizer</a></p></p>
 <p align="center"><img width="538" alt="sinusoid_training_string" src="https://user-images.githubusercontent.com/24375094/210359127-983f015c-11cf-40d9-a92c-ed38f05dcc03.png"><p align="center"><a href="https://github.com/digwit678/DIGCREAT_AUDIO_PROCESSION/blob/main/ddsp_notebooks_adjusted/small_training_trials/3_training_string_900_malletpd_sinusoid.ipynb">Sinusoid Synthesizer</a></p></p>
 <p align="center"><img width="517" alt="wavetable_training_string" src="https://user-images.githubusercontent.com/24375094/210359129-a2872998-8b38-4b5a-a865-983b7a5e13df.png"><p align="center"><a href="https://github.com/digwit678/DIGCREAT_AUDIO_PROCESSION/blob/main/ddsp_notebooks_adjusted/small_training_trials/3_training_string_300_wt.ipynb">Wavetable Synthesizer</a></p></p>
 
-<p align="center">We can observe from the spectograms that the harmonic synthesizer - as you´d probably expected - has the richest harmonic distribution</p>
+<p> <i> We can observe from the spectograms that the harmonic synthesizer - as you´d probably expected - has the richest harmonic distribution </i> </p>
 
  </div>
- </body>
+ 
  
 # Citation 
 
@@ -192,7 +194,7 @@ All notebook sources in the folder ddsp_notebooks_adjusted belong to <a href="ht
   url={https://openreview.net/forum?id=B1x1ma4tDr}  
 }  
 ```
-Some pictures in the README are copied from the [DDSP paper](https://openreview.net/pdf?id=B1x1ma4tDr)
+Some pictures in the README/presentation are copied from the [DDSP paper](https://openreview.net/pdf?id=B1x1ma4tDr)
 
 
 # Possible Next Steps
@@ -210,7 +212,7 @@ just have a look at [ddsp demos] (https://github.com/magenta/ddsp/tree/main/ddsp
 [Youtube: Google staff research scientist Jesse Engel explaining DDSP](https://www.youtube.com/watch?v=20vUaDblkUM&ab_channel=TheTWIMLAIPodcastwithSamCharrington)
 
 
-
+</body>
 
 
 
