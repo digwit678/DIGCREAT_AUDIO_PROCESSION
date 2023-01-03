@@ -10,7 +10,7 @@ We decided to work mostly on Google Colab because it´s  much more convenient fo
 There  are arlready notebooks on converting your own wave data to the needed format (TFR) when working with DDSP. Since we did not have enough of the right wave data we used a TFR dataset with prepared MIDI samples. 
 
 We accomodated ourselves to DDSP by going through a lot of the tutorials (<a href="https://github.com/magenta/ddsp/tree/main/ddsp/colab/tutorials">DDSP TUTORIALS</a> ).     
- Afterwards we used our gathered and sorted TFR data for small training on a single instrument type and then *predict* a sample of another instrument with the help of an ([adjusted DDSP notebook](https://github.com/digwit678/DIGCREAT_AUDIO_PROCESSION/tree/main/ddsp_notebooks_adjusted/small_training_trials)).   *Prediction* in this sense means, you predict how that sample (e.g. a keyboard tone) would sound with the sound characteristics (timbre) of a different instrument (e.g. string) or simpler: ***How would a keyboard tone sound if it played with a string sound/timbre ?***  
+ Afterwards we used our gathered and sorted TFR data for small training on a single instrument type and then *predict* a sample of another instrument with the help of an [adjusted DDSP notebook](https://github.com/digwit678/DIGCREAT_AUDIO_PROCESSION/blob/main/ddsp_notebooks_adjusted/small_training_trials/3_training_string_340_keyboard_harmonic.ipynb).   *Prediction* in this sense means, you predict how that sample (e.g. a keyboard tone) would sound with the sound characteristics (timbre) of a different instrument (e.g. string) or simpler: ***How would a keyboard tone sound if it played with a string sound/timbre ?***  
 
 
 
