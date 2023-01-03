@@ -147,7 +147,7 @@ Thanks to these layer types we have <b><i>faster training of autoencoders</i></b
 <p align="center"><img width="530" alt="ddsp_input_features_synth_parameters" src="https://user-images.githubusercontent.com/24375094/208658561-4a6da72b-4598-44ca-add5-08266a4f71de.png"></p>
 
 
-<p align="center"><img width="522" alt="harmonic_training_string" src="https://user-images.githubusercontent.com/24375094/210359126-43c3820a-a45d-4dc1-8f8c-b4a73ef08485.png"><p align="center"><a href="https://github.com/digwit678/DIGCREAT_AUDIO_PROCESSION/blob/main/ddsp_notebooks_adjusted/small_training_trials/3_training_string_340_keyboard_harmonic.ipynb">HaHarmonic Synthesizer</a></p></p>
+<p align="center"><img width="522" alt="harmonic_training_string" src="https://user-images.githubusercontent.com/24375094/210359126-43c3820a-a45d-4dc1-8f8c-b4a73ef08485.png"><p align="center"><a href="https://github.com/digwit678/DIGCREAT_AUDIO_PROCESSION/blob/main/ddsp_notebooks_adjusted/small_training_trials/3_training_string_340_keyboard_harmonic.ipynb">Harmonic Synthesizer</a></p></p>
 <p align="center"><img width="538" alt="sinusoid_training_string" src="https://user-images.githubusercontent.com/24375094/210359127-983f015c-11cf-40d9-a92c-ed38f05dcc03.png"><p align="center"><a href="https://github.com/digwit678/DIGCREAT_AUDIO_PROCESSION/blob/main/ddsp_notebooks_adjusted/small_training_trials/3_training_string_900_malletpd_sinusoid.ipynb">Sinusoid Synthesizer</a></p></p>
 <p align="center"><img width="517" alt="wavetable_training_string" src="https://user-images.githubusercontent.com/24375094/210359129-a2872998-8b38-4b5a-a865-983b7a5e13df.png"><p align="center"><a href="https://github.com/digwit678/DIGCREAT_AUDIO_PROCESSION/blob/main/ddsp_notebooks_adjusted/small_training_trials/3_training_string_300_wt.ipynb">Wavetable Synthesizer</a></p></p>
 <p align="center">We can observe from the spectograms that the harmonic synthesizer - as you´d probably expected - has the richest harmonic content</p>
@@ -200,26 +200,12 @@ Since the time for this project was scarce and the complexity relatively high we
   
 just have a look at [ddsp demos] (https://github.com/magenta/ddsp/tree/main/ddsp/colab/demos - there are lots of (new) ideas once your familiar with the library and data!
 
-## Notes to Jesse DDSP video (to be removed) (youtube link for video, else delete) 
+## Further Links
+
+[Youtube: Google staff research scientist Jesse Engel explaining DDSP](https://www.youtube.com/watch?v=20vUaDblkUM&ab_channel=TheTWIMLAIPodcastwithSamCharrington)
 
 
-Lowest level: 
-More semantically meaningful: symbolic modelling as a language model --> faster workflow (fast feedback) in comparison to training your model for 16 hours and then see what happened.
 
-
-old: predict new waveform, given old waveform (we perceive different waveforms as the same sound), model the waveforms sample by sample 
-idea: incorporate prior information of ddsp and signal processing ==> generate simple oscillator components: whats frequencies and amplitudes of a model (interprete signal processes in TensorFlow , take gradient and look at frequency alignment of input and target audio to create expressive sound): manipulate frequencies individually in selectively with knowing whats going on in the inside of the model (interpretable),  (ear (ear is sensitive to phases of sinewaves if there is no frequency): 1.) frequency decomposition)  
-creativity: What if I take the pitch and loudness of a different signal than the one my decoder is trained on ? 
-Pitch and frequency stays the same but the tone changes according to the instrument learned by the decoder (decodes pitch and freq into e.g. a violin sound) (timbre transfer). DDSP allows to run models in real time (was never possible with raw waveform models)  
-
-You can get very creative by trying routing lots of differents submodules in different ways. 
-
-Training of autoencoders does not need a lot of data and usually only takes around 10 minutes: supervised by itself (todo?) 
-
-Symbolic Representation 
-
-Prior knowledge: how to decompose the grammar of music which works for a certain context. The philosophy is to incorporate this language and create new contexts
-As a musician this gives you the opportunity to incorporate your own sounds and turn them into something new, but also for "non musician people" who like the thrill of experimenting and creating. 
 
 
 
