@@ -191,9 +191,8 @@ for more content, just have a look at [ddsp demos](https://github.com/magenta/dd
 
 ## Citation 
 
-All notebook sources in the folder ddsp_notebooks_adjusted belong to <a href="https://github.com/magenta/ddsp">Google Magenta´s DDSP</a> research team.  
- <a href="https://colab.research.google.com/github/magenta/ddsp/blob/main/ddsp/colab/tutorials/3_training.ipynb">training on single instrument notebook</a>
- <a href="https://github.com/magenta/ddsp/blob/main/ddsp/colab/demos/timbre_transfer.ipynb">timbre transfer notebook</a>
+All notebook sources in the folder ddsp_notebooks_adjusted belong to <a href="https://github.com/magenta/ddsp">Google Magenta´s DDSP</a> research team.
+
 <br></br>
 
 ```
@@ -224,6 +223,12 @@ All notebook sources in the folder ddsp_notebooks_adjusted belong to <a href="ht
   url={https://openreview.net/forum?id=B1x1ma4tDr}  
 }  
 ```
+<br></br>
+
+### <i>Notebook Sources</i>  
+
+ <a href="https://colab.research.google.com/github/magenta/ddsp/blob/main/ddsp/colab/tutorials/3_training.ipynb">training on single instrument notebook</a>  
+ <a href="https://github.com/magenta/ddsp/blob/main/ddsp/colab/demos/timbre_transfer.ipynb">timbre transfer notebook</a>
 <br></br>
 
 ## Picture Sources (README & presentation) 
