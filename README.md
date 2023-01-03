@@ -89,7 +89,7 @@ For our first trial we used the [nsynth/full dataset](https://console.cloud.goog
 ### Downloading
 
 
-for more efficient training we downloaded our whole dataset from *Google Clouds* with [this link](https://console.cloud.google.com/storage/browser/tfds-data/datasets/nsynth;tab=objects?prefix=&forceOnObjectsSortingFiltering=false)
+for more efficient training we downloaded the whole GANSYNTH 2.3.3. (sub) dataset from *Google Clouds* with [this link](https://console.cloud.google.com/storage/browser/tfds-data/datasets/nsynth;tab=objects?prefix=&forceOnObjectsSortingFiltering=false)
  
 
 
@@ -109,7 +109,7 @@ to download multiple items at once you need to [use gsutil](https://cloud.google
 <p>
 For our project we used the TensorfFlow GAN subset of the NSYNTH dataset. It offers preprocessed samples which contain the most relevant features (amplitude and frequency) ready to use with the DDSP library. </br>
 For efficient training we <i> downloaded </i> the 11 instrument samples instead of streaming them. Since the <i> data wasn´t storted by instrument type </i> we had to do this step additionally to observe the effects of training on a single instrument type.   
-We read the TFRecord files into Python, parsed them to JSON to identify the instrument label and then wrote them back to TFRecord files. For this to work properly, we had to <b>continuously remove the written objects from the memory such that it did not overflow</b>.  
+We read the TFRecord files into Python, parsed them to JSON to identify the instrument label and then wrote them back to TFRecord files with [the help of this notebook](https://github.com/digwit678/DIGCREAT_AUDIO_PROCESSION/blob/main/data/data_sorting/NSYNTH-TFRECORD-SORT.ipynb). For this to work properly, we had to <b>continuously remove the written objects from the memory such that it did not overflow</b>.  
 All in all this procedure took around 10 hours to sort the samples for the first dataset and then significantly less time for the second (samller) set (30-60 minutes). </p>
 
 <h4 align="center"> Raw TFRecord String Representation </h4> 
@@ -194,13 +194,13 @@ All notebook sources in the folder ddsp_notebooks_adjusted belong to <a href="ht
   url={https://openreview.net/forum?id=B1x1ma4tDr}  
 }  
 ```
-
-# Picture Sources
+Picture Sources (README & presentation) 
 
 [DDSP paper](https://openreview.net/pdf?id=B1x1ma4tDr)
 
-[guitar oscillation](https://www.geonoise.com/the-nano-guitar-string-that-plays-itself/)
 [playground oscillation](https://www.britannica.com/technology/pendulum)
+
+[waves oscillation](https://www.google.com/search?q=waves&tbm=isch&ved=2ahUKEwiW98n92Kv8AhUzw7sIHaxHCpQQ2-cCegQIABAA&oq=waves&gs_lcp=CgNpbWcQAzIECAAQQzIECAAQQzIECAAQQzIECAAQQzIECAAQQzIECAAQQzIECAAQQzIECAAQQzIFCAAQgAQyBQgAEIAEOggIABCABBCxA1DPBFiBCGDCCmgAcAB4AIABSIgBhQOSAQE2mAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=9Ea0Y5atJ7OG7_UPrI-poAk&bih=881&biw=1824&rlz=1C1JJTC_enCH974CH975)
 
 # Possible Next Steps
 
