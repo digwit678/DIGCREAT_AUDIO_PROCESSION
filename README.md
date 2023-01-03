@@ -6,7 +6,7 @@
 
 
 For the course *Digital Creativity* we explored the open source library **Google Magenta DDSP**.  
-We decided to work mostly on Google Colab because it´s  much more convenient for us regarding installations, dependencies and training on GPU. The only exception to this is working with the dataset: It was all downloaded from Google Clouds to a local disk  and and sorted locally.  
+We decided to work mostly on Google Colab because it´s  much more convenient for us regarding installations, dependencies and training on GPU. The only exception to this is working with the dataset: It was all downloaded from [Google Clouds](https://console.cloud.google.com/storage/browser/tfds-data/datasets/nsynth/gansynth_subset.f0_and_loudness/2.3.3?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22))&prefix=&forceOnObjectsSortingFiltering=false) to a local disk  and and sorted there with [this notebook](https://github.com/digwit678/DIGCREAT_AUDIO_PROCESSION/blob/main/data/data_sorting/NSYNTH-TFRECORD-SORT.ipynb).  
 There  are arlready notebooks on converting your own wave data to the needed format (TFR) when working with DDSP. Since we did not have enough of the right wave data we used a TFR dataset with prepared MIDI samples. 
 
 We accomodated ourselves to DDSP by going through a lot of the tutorials (<a href="https://github.com/magenta/ddsp/tree/main/ddsp/colab/tutorials">DDSP TUTORIALS</a> ).     
@@ -22,7 +22,7 @@ We accomodated ourselves to DDSP by going through a lot of the tutorials (<a hre
 
 <div name="representation">  
  
-One song of 3 minutes : 1 Million time steps BUT relevant information is much less! **The art is to extract those featuers** and find a meaningful representation for music. If music is only structured as a bit stream consisting of 1´s and 0´s it is very difficult to know what´s going on.  </div>  
+One song of 3 minutes : 1 Million time steps **BUT** relevant information is much less! ***The art is to extract those featuers*** and find a meaningful representation for music. If music is only structured as a bit stream consisting of 1´s and 0´s it is very difficult to know what´s going on.  </div>  
 
  
 <div name = "bias">  
@@ -83,17 +83,20 @@ With this features you <i> can represent a harmonic oscillation precisely solely
  
 ## Dataset 
  
+For our first trial we used the [nsynth/full dataset](https://console.cloud.google.com/storage/browser/tfds-data/datasets/nsynth/full?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22))&prefix=&forceOnObjectsSortingFiltering=false) but then realized the features weren´t optimally suited for working with DDSP so we changed to the [nsynth/gansynth_subset.f0_and_loudness/2.3.3.](https://console.cloud.google.com/storage/browser/tfds-data/datasets/nsynth/gansynth_subset.f0_and_loudness/2.3.3) with f0 and loudness features which were missing.   
+ 
 ### Downloading
+
+
+for more efficient training we downloaded our whole dataset from *Google Clouds* with [this link](https://console.cloud.google.com/storage/browser/tfds-data/datasets/nsynth;tab=objects?prefix=&forceOnObjectsSortingFiltering=false)
  
-for more efficient training we downloaded our whole dataset from *Google Clouds* with the following link: https://console.cloud.google.com/storage/browser/tfds-data/datasets/nsynth;tab=objects?prefix=&forceOnObjectsSortingFiltering=false
- 
 
 
-to download multiple items at once you need to use gsutil (https://cloud.google.com/storage/docs/gsutil_install). This command requires to have parts of Google CLI installed on your computer  
+to download multiple items at once you need to [use gsutil](https://cloud.google.com/storage/docs/gsutil_install). This command requires to have parts of Google CLI installed on your computer  
 
- 1.) install Google CLI (https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe)  
- 2.) make sure gsutil is installed on Google CLI  
- 3.) download files with gsutil command from terminal to storage location (recommended for big data amounts: external drive, e.g. "E:\gansynth") :  
+ 1.) [install Google CLI](https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe)  
+ 2.) make sure gsutil is installed on Google CLI (e.g. try ```gsutil ls``` in command prompt: is the command recognized?)
+ 3.) download files with gsutil command from terminal to storage location (external drive (e.g. "E:\gansynth") recommended for big data amounts:  
  
    
      gsutil -m cp -r "gs://tfds-data/PATH" "STORAGE_PATH" 
@@ -134,7 +137,7 @@ For efficient processing, (the features of) the input data has to be aligned wit
 ## Training
 <p>
 DDSP achitecture is based on a transformer network.  </br>
-That´s where the ddsp library comes in: it offers sound modules (synthesizers) which are differentiable and therefore can use back propagation to tune their synthesizer parameters (analog to recreating a sound on a synthesizer) and do not learn as much bias as the other models by the help of deep specialized and structured layers. </br>
+That´s where the DDSP library comes in: it offers sound modules (synthesizers) which are differentiable and therefore can use back propagation to tune their synthesizer parameters (analog to recreating a sound on a synthesizer) and do not learn as much bias as the other models by the help of deep specialized and structured layers. </br>
 Thanks to these layer types we have <b><i>faster training of autoencoders</i></b> and therefore quick feedback, which offers a <i>more instrument like workflow</i> than iterating for 16 hours of training until you can implement further changes.</p>
 
 <h3 align="center">  Training of Autoencoders </h3> 
