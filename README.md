@@ -96,7 +96,7 @@ to download multiple items at once you need to [use gsutil](https://cloud.google
 
  1.) [install Google CLI](https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe)    
  2.) make sure gsutil is installed on Google CLI (e.g. try ```gsutil ls``` in command prompt: is the command recognized?)  
- 3.) download files with gsutil command from terminal to storage location (external drive (e.g. "E:\gansynth") recommended for big data amounts:  
+ 3.) download files with gsutil command from the cloud to a (local) storage location (external drive, e.g. "E:\gansynth", recommended for big data amounts:    
  
    
      gsutil -m cp -r "gs://tfds-data/PATH" "STORAGE_PATH" 
