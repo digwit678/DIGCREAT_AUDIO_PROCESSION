@@ -71,9 +71,9 @@ These <i>analysis/synthesis</i> models use expert knowledge and hand-tuned heuri
 With this features you <i> can represent a harmonic oscillation precisely solely by using </i>
  
  <br></br>
- <ul align="center"> Fundamental Frequency F0 (Hz) </ul>  
- <ul align="center"> Harmonics (F0 multiplications: odd, even, ...) </ul>  
- <ul align="center"> Amplitude (dB) </ul>
+ <ul align="center"> <b>Fundamental Frequency F0 </b> (Hz) </ul>  
+ <ul align="center"> <b>Harmonics</b> (F0 multiplications: odd, even, ...) </ul>  
+ <ul align="center"> <b>Amplitude</b> (dB) </ul>
   <br></br> 
  </div>   
  This representation does not imply the model is completely free from bias but it seems to approach the nature and complexity of sound the best yet.  
