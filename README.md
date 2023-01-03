@@ -85,9 +85,11 @@ With this features you <i> can represent a harmonic oscillation precisely solely
 
 
 For our first trial we used the [nsynth/full dataset](https://console.cloud.google.com/storage/browser/tfds-data/datasets/nsynth/full?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22))&prefix=&forceOnObjectsSortingFiltering=false) but then realized the features weren´t optimally suited for working with DDSP so we changed to the [nsynth/gansynth_subset.f0_and_loudness/2.3.3.](https://console.cloud.google.com/storage/browser/tfds-data/datasets/nsynth/gansynth_subset.f0_and_loudness/2.3.3) with f0 and loudness features which were missing.   
+
  
 ### Downloading
 
+If you would like to try out a training on a single instrument without downloading the whole dataset we uploaded two TFR files (containing a lot of samples!) for string and keyboard ([data folder](https://github.com/digwit678/DIGCREAT_AUDIO_PROCESSION/tree/main/data)) and used up our whole LF/Large File Storage Github resources. The data there should be enough to train on strings samples (xor keyboard) and predict with one keyboard sample (xor string)
 
 for more efficient training we downloaded the whole GANSYNTH 2.3.3. (sub) dataset from *Google Clouds* with [this link](https://console.cloud.google.com/storage/browser/tfds-data/datasets/nsynth;tab=objects?prefix=&forceOnObjectsSortingFiltering=false)
  
@@ -226,7 +228,7 @@ Since the time for this project was scarce and the complexity relatively high we
 
 we also prepared [the timbre transfer notebook](https://github.com/digwit678/DIGCREAT_AUDIO_PROCESSION/tree/main/ddsp_notebooks_adjusted/notebooks_to_continue) since the original version with the updated dependencies did not work. 
 
-for more content, just have a look at [ddsp demos] (https://github.com/magenta/ddsp/tree/main/ddsp/colab/demos - there are lots of (new) ideas once your familiar with the library and data!
+for more content, just have a look at [ddsp demos](https://github.com/magenta/ddsp/tree/main/ddsp/colab/demos): there are a lot of (new) ideas once your familiar with the library and the data!
 
 # Further Links
 
