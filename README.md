@@ -143,13 +143,14 @@ Thanks to these layer types we have <b><i>faster training of autoencoders</i></b
 <p align="center"><img width="500" height="800" alt="colab_tut_training_basic_code_python_soundmodules" src="https://user-images.githubusercontent.com/24375094/208652789-f7b99ce7-d19c-435a-af41-4a02ec325554.png"></p>
 
 
-<p align="center"> After training of 300 trainingsteps ( ~ 30 seconds) we receive following synth representation of the input. </p>
+<p align="center"> We received the following outputs when training with 3 different synthesizers (= neural layers) trained on the same data (until learning curve flattening, usually around 4.5-5) </p>
 <p align="center"><img width="530" alt="ddsp_input_features_synth_parameters" src="https://user-images.githubusercontent.com/24375094/208658561-4a6da72b-4598-44ca-add5-08266a4f71de.png"></p>
 
 
 <p align="center"><img width="522" alt="harmonic_training_string" src="https://user-images.githubusercontent.com/24375094/210359126-43c3820a-a45d-4dc1-8f8c-b4a73ef08485.png"><p align="center"><a href="https://github.com/digwit678/DIGCREAT_AUDIO_PROCESSION/blob/main/ddsp_notebooks_adjusted/small_training_trials/3_training_string_340_keyboard_harmonic.ipynb">Harmonic Synthesizer</a></p></p>
 <p align="center"><img width="538" alt="sinusoid_training_string" src="https://user-images.githubusercontent.com/24375094/210359127-983f015c-11cf-40d9-a92c-ed38f05dcc03.png"><p align="center"><a href="https://github.com/digwit678/DIGCREAT_AUDIO_PROCESSION/blob/main/ddsp_notebooks_adjusted/small_training_trials/3_training_string_900_malletpd_sinusoid.ipynb">Sinusoid Synthesizer</a></p></p>
 <p align="center"><img width="517" alt="wavetable_training_string" src="https://user-images.githubusercontent.com/24375094/210359129-a2872998-8b38-4b5a-a865-983b7a5e13df.png"><p align="center"><a href="https://github.com/digwit678/DIGCREAT_AUDIO_PROCESSION/blob/main/ddsp_notebooks_adjusted/small_training_trials/3_training_string_300_wt.ipynb">Wavetable Synthesizer</a></p></p>
+
 <p align="center">We can observe from the spectograms that the harmonic synthesizer - as you´d probably expected - has the richest harmonic content</p>
 
  </div>
