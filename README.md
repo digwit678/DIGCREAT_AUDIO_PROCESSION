@@ -142,10 +142,15 @@ DDSP achitecture is based on a transformer network.  </br>
 That´s where the DDSP library comes in: it offers sound modules (synthesizers) which are differentiable and therefore can use back propagation to tune their synthesizer parameters (analog to recreating a sound on a synthesizer) and do not learn as much bias as the other models by the help of deep specialized and structured layers. </br>
 Thanks to these layer types we have <b><i>faster training of autoencoders</i></b> and therefore quick feedback, which offers a <i>more instrument like workflow</i> than iterating for 16 hours of training until you can implement further changes.</p>
 
-<h3 align="center">  Training of Autoencoders </h3> 
+<h3 align="center"> Training of Autoencoders </h3> 
 <p align="center"><img width="1638" alt="ddsp_autoencoder" src="https://user-images.githubusercontent.com/24375094/208653552-06a19ab8-fbaa-4c42-86fc-490c9ce4b0e8.png"></p>
+<p align="center"> 
+ For training on a TFR dataset we recommend using 
+<a href="https://github.com/digwit678/DIGCREAT_AUDIO_PROCESSION/blob/main/ddsp_notebooks_adjusted/small_training_trials/3_training_string_340_keyboard_harmonic.ipynb"> this notebook</a> as a starting point 
+</p>
 
-<h3 align="center">Python Code</h3>
+
+<h3 align="center">Python Code for Layers/Synths</h3>
 <p align="center"><img width="500" height="800" alt="colab_tut_training_basic_code_python_soundmodules" src="https://user-images.githubusercontent.com/24375094/208652789-f7b99ce7-d19c-435a-af41-4a02ec325554.png"></p>
 
 <h3 align="center">Results </h3>
