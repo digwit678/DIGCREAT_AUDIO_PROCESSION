@@ -183,6 +183,12 @@ we also prepared [the timbre transfer notebook](https://github.com/digwit678/DIG
 for more content, just have a look at [ddsp demos](https://github.com/magenta/ddsp/tree/main/ddsp/colab/demos): there are a lot of (new) ideas once your familiar with the library and the data!
 <br></br>
 
+
+## Further Links
+
+[Youtube: Google staff research scientist Jesse Engel explaining DDSP](https://www.youtube.com/watch?v=20vUaDblkUM&ab_channel=TheTWIMLAIPodcastwithSamCharrington)
+<br></br>
+
 ## Citation 
 
 All notebook sources in the folder ddsp_notebooks_adjusted belong to <a href="https://github.com/magenta/ddsp">Google Magenta´s DDSP</a> research team.  
@@ -227,12 +233,6 @@ All notebook sources in the folder ddsp_notebooks_adjusted belong to <a href="ht
 [playground oscillation](https://www.britannica.com/technology/pendulum)
 
 [waves oscillation](https://www.google.com/search?q=waves&tbm=isch&ved=2ahUKEwiW98n92Kv8AhUzw7sIHaxHCpQQ2-cCegQIABAA&oq=waves&gs_lcp=CgNpbWcQAzIECAAQQzIECAAQQzIECAAQQzIECAAQQzIECAAQQzIECAAQQzIECAAQQzIECAAQQzIFCAAQgAQyBQgAEIAEOggIABCABBCxA1DPBFiBCGDCCmgAcAB4AIABSIgBhQOSAQE2mAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=9Ea0Y5atJ7OG7_UPrI-poAk&bih=881&biw=1824&rlz=1C1JJTC_enCH974CH975)
-
-<br></br>
-
-## Further Links
-
-[Youtube: Google staff research scientist Jesse Engel explaining DDSP](https://www.youtube.com/watch?v=20vUaDblkUM&ab_channel=TheTWIMLAIPodcastwithSamCharrington)
 
 
 </body>
