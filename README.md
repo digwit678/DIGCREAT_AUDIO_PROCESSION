@@ -194,8 +194,13 @@ All notebook sources in the folder ddsp_notebooks_adjusted belong to <a href="ht
   url={https://openreview.net/forum?id=B1x1ma4tDr}  
 }  
 ```
-Some pictures in the README/presentation are copied from the [DDSP paper](https://openreview.net/pdf?id=B1x1ma4tDr)
 
+# Picture Sources
+
+[DDSP paper](https://openreview.net/pdf?id=B1x1ma4tDr)
+
+[guitar oscillation](https://www.geonoise.com/the-nano-guitar-string-that-plays-itself/)
+[playground oscillation](https://www.britannica.com/technology/pendulum)
 
 # Possible Next Steps
 
