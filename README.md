@@ -223,8 +223,10 @@ Since the time for this project was scarce and the complexity relatively high we
 - try bigger training on the timbre transfer notebook
 - train a VST on the VST notebook 
 - ...
-  
-just have a look at [ddsp demos] (https://github.com/magenta/ddsp/tree/main/ddsp/colab/demos - there are lots of (new) ideas once your familiar with the library and data!
+
+we also prepared [the timbre transfer notebook](https://github.com/digwit678/DIGCREAT_AUDIO_PROCESSION/tree/main/ddsp_notebooks_adjusted/notebooks_to_continue) since the original version with the updated dependencies did not work. 
+
+for more content, just have a look at [ddsp demos] (https://github.com/magenta/ddsp/tree/main/ddsp/colab/demos - there are lots of (new) ideas once your familiar with the library and data!
 
 # Further Links
 
