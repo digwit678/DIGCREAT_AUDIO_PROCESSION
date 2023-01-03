@@ -6,11 +6,11 @@
 
 
 For the course *Digital Creativity* we explored the open source library **Google Magenta DDSP**.  
-We decided to work mostly on Google Colab because it´s  much more convenient for us regarding installations, dependencies and training on GPU. The only exception to this is working with the dataset: It was all downloaded from [Google Clouds](https://console.cloud.google.com/storage/browser/tfds-data/datasets/nsynth/gansynth_subset.f0_and_loudness/2.3.3?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22))&prefix=&forceOnObjectsSortingFiltering=false) to a local disk  and and sorted there with [this notebook] (https://github.com/digwit678/DIGCREAT_AUDIO_PROCESSION/blob/main/data/data_sorting/NSYNTH-TFRECORD-SORT.ipynb).  
+We decided to work mostly on Google Colab because it´s  much more convenient for us regarding installations, dependencies and training on GPU. The only exception to this is working with the dataset: It was all downloaded from [Google Clouds](https://console.cloud.google.com/storage/browser/tfds-data/datasets/nsynth/gansynth_subset.f0_and_loudness/2.3.3?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22))&prefix=&forceOnObjectsSortingFiltering=false) to a local disk  and and sorted there [by using this notebook] (https://github.com/digwit678/DIGCREAT_AUDIO_PROCESSION/blob/main/data/data_sorting/NSYNTH-TFRECORD-SORT.ipynb).  
 There  are arlready notebooks on converting your own wave data to the needed format (TFR) when working with DDSP. Since we did not have enough of the right wave data we used a TFR dataset with prepared MIDI samples. 
 
 We accomodated ourselves to DDSP by going through a lot of the tutorials (<a href="https://github.com/magenta/ddsp/tree/main/ddsp/colab/tutorials">DDSP TUTORIALS</a> ).     
- Afterwards we used our gathered and sorted TFR data for small training on a single instrument type and then *predict* a sample of another instrument with the help of an [adjusted DDSP notebook](https://github.com/digwit678/DIGCREAT_AUDIO_PROCESSION/blob/main/ddsp_notebooks_adjusted/small_training_trials/3_training_string_340_keyboard_harmonic.ipynb).   *Prediction* in this sense means, you predict how that sample (e.g. a keyboard tone) would sound with the sound characteristics (timbre) of a different instrument (e.g. string) or simpler: ***How would a keyboard tone sound if it played with a string sound/timbre ?***  
+ Afterwards we used our gathered and sorted TFR data for small training on a single instrument type and then *predict* a sample of another instrument with the help of an [adjusted DDSP notebook](https://github.com/digwit678/DIGCREAT_AUDIO_PROCESSION/blob/main/ddsp_notebooks_adjusted/small_training_trials/3_training_string_340_keyboard_harmonic.ipynb) .   *Prediction* in this sense means, you predict how that sample (e.g. a keyboard tone) would sound with the sound characteristics (timbre) of a different instrument (e.g. string) or simpler: ***How would a keyboard tone sound if it played with a string sound/timbre ?***  
 
 
 
@@ -109,7 +109,7 @@ to download multiple items at once you need to [use gsutil](https://cloud.google
 <p>
 For our project we used the TensorfFlow GAN subset of the NSYNTH dataset. It offers preprocessed samples which contain the most relevant features (amplitude and frequency) ready to use with the DDSP library. </br>
 For efficient training we <i> downloaded </i> the 11 instrument samples instead of streaming them. Since the <i> data wasn´t storted by instrument type </i> we had to do this step additionally to observe the effects of training on a single instrument type.   
-We read the TFRecord files into Python, parsed them to JSON to identify the instrument label and then wrote them back to TFRecord files with [the help of this notebook](https://github.com/digwit678/DIGCREAT_AUDIO_PROCESSION/blob/main/data/data_sorting/NSYNTH-TFRECORD-SORT.ipynb). For this to work properly, we had to <b>continuously remove the written objects from the memory such that it did not overflow</b>.  
+We read the TFRecord files into Python, parsed them to JSON to identify the instrument label and then wrote them back to TFRecord files with <a href="https://github.com/digwit678/DIGCREAT_AUDIO_PROCESSION/blob/main/data/data_sorting/NSYNTH-TFRECORD-SORT.ipynb">the help of this notebook</a>. For this to work properly, we had to <b>continuously remove the written objects from the memory such that it did not overflow</b>.  
 All in all this procedure took around 10 hours to sort the samples for the first dataset and then significantly less time for the second (samller) set (30-60 minutes). </p>
 
 <h4 align="center"> Raw TFRecord String Representation </h4> 
@@ -143,13 +143,13 @@ That´s where the DDSP library comes in: it offers sound modules (synthesizers) 
 Thanks to these layer types we have <b><i>faster training of autoencoders</i></b> and therefore quick feedback, which offers a <i>more instrument like workflow</i> than iterating for 16 hours of training until you can implement further changes.</p>
 
 <h3 align="center">  Training of Autoencoders </h3> 
-<img width="1638" alt="ddsp_autoencoder" src="https://user-images.githubusercontent.com/24375094/208653552-06a19ab8-fbaa-4c42-86fc-490c9ce4b0e8.png">
+<p align="center"><img width="1638" alt="ddsp_autoencoder" src="https://user-images.githubusercontent.com/24375094/208653552-06a19ab8-fbaa-4c42-86fc-490c9ce4b0e8.png"></p>
 
-<h3 align="center">Python Code <h3 align="center">
+<h3 align="center">Python Code</h3>
 <p align="center"><img width="500" height="800" alt="colab_tut_training_basic_code_python_soundmodules" src="https://user-images.githubusercontent.com/24375094/208652789-f7b99ce7-d19c-435a-af41-4a02ec325554.png"></p>
 
-
-<p align="center"> We received the following outputs when training with 3 different synthesizers (= neural layers) trained on the same string data (until learning curve flattening, usually around 4.5-5) and predicted on the same keyboard sample </p>
+<h3 align="center">Results </h3>
+<p> We received the following outputs when training with 3 different synthesizers (= neural layers) trained on the same string data (until learning curve flattening, usually around 4.5-5) and predicted on the same keyboard sample </p>
 
 
 <p align="center"><img width="522" alt="harmonic_training_string" src="https://user-images.githubusercontent.com/24375094/210359126-43c3820a-a45d-4dc1-8f8c-b4a73ef08485.png"><p align="center"><a href="https://github.com/digwit678/DIGCREAT_AUDIO_PROCESSION/blob/main/ddsp_notebooks_adjusted/small_training_trials/3_training_string_340_keyboard_harmonic.ipynb">Harmonic Synthesizer</a></p></p>
