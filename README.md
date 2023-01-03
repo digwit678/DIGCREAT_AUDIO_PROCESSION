@@ -120,7 +120,7 @@ All in all this procedure took around 10 hours to sort the samples. </p>
 
 <p align="center">To get our TFR data working with the DDSP (e.g. notebook <i> training </i>) we had to adjust the classes slightly do accept the feature names with slashes instead of dashes (f0_hz = f0/hz) else we had to do the whole sorting process again to change feature names </p>
 
-<h3 align="center">   Feature Representation </h3>
+<h4 align="center">   Feature Representation </h4>
 <p align="center">
 The features are presented as floatList tensors which contain the values over very small timesteps (e.g. length of 64000). </br>  
 For efficient processing, (the features of) the input data has to be aligned with the architecture of a neural network.  </p>
