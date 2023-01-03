@@ -155,16 +155,19 @@ Thanks to these layer types we have <b><i>faster training of autoencoders</i></b
 <p align="center"><img width="522" alt="harmonic_training_string" src="https://user-images.githubusercontent.com/24375094/210359126-43c3820a-a45d-4dc1-8f8c-b4a73ef08485.png"><p align="center"><a href="https://github.com/digwit678/DIGCREAT_AUDIO_PROCESSION/blob/main/ddsp_notebooks_adjusted/small_training_trials/3_training_string_340_keyboard_harmonic.ipynb">Harmonic Synthesizer</a></p></p>
 <p align="center"><img width="538" alt="sinusoid_training_string" src="https://user-images.githubusercontent.com/24375094/210359127-983f015c-11cf-40d9-a92c-ed38f05dcc03.png"><p align="center"><a href="https://github.com/digwit678/DIGCREAT_AUDIO_PROCESSION/blob/main/ddsp_notebooks_adjusted/small_training_trials/3_training_string_900_malletpd_sinusoid.ipynb">Sinusoid Synthesizer</a></p></p>
 <p align="center"><img width="517" alt="wavetable_training_string" src="https://user-images.githubusercontent.com/24375094/210359129-a2872998-8b38-4b5a-a865-983b7a5e13df.png"><p align="center"><a href="https://github.com/digwit678/DIGCREAT_AUDIO_PROCESSION/blob/main/ddsp_notebooks_adjusted/small_training_trials/3_training_string_300_wt.ipynb">Wavetable Synthesizer</a></p></p>
+<br></br>
+<br></br>
 
 <p> <i> We can observe from the spectograms that the harmonic synthesizer - as you´d probably expected - has the richest harmonic distribution </i> </p>
-
+<br></br>
  </div>
  
  
 # Citation 
 
-```
+<br></br>
 
+```
 # Copyright 2021 Google LLC. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -180,6 +183,8 @@ Thanks to these layer types we have <b><i>faster training of autoencoders</i></b
 # limitations under the License.
 # ==============================================================================
 ```
+<br></br>
+
 All notebook sources in the folder ddsp_notebooks_adjusted belong to <a href="https://github.com/magenta/ddsp">Google Magenta´s DDSP</a> research team.  
  <a href="https://colab.research.google.com/github/magenta/ddsp/blob/main/ddsp/colab/tutorials/3_training.ipynb">training on single instrument notebook</a>
  <a href="https://github.com/magenta/ddsp/blob/main/ddsp/colab/demos/timbre_transfer.ipynb">timbre transfer notebook</a>
@@ -194,13 +199,17 @@ All notebook sources in the folder ddsp_notebooks_adjusted belong to <a href="ht
   url={https://openreview.net/forum?id=B1x1ma4tDr}  
 }  
 ```
-Picture Sources (README & presentation) 
+<br></br>
+
+# Picture Sources (README & presentation) 
 
 [DDSP paper](https://openreview.net/pdf?id=B1x1ma4tDr)
 
 [playground oscillation](https://www.britannica.com/technology/pendulum)
 
 [waves oscillation](https://www.google.com/search?q=waves&tbm=isch&ved=2ahUKEwiW98n92Kv8AhUzw7sIHaxHCpQQ2-cCegQIABAA&oq=waves&gs_lcp=CgNpbWcQAzIECAAQQzIECAAQQzIECAAQQzIECAAQQzIECAAQQzIECAAQQzIECAAQQzIECAAQQzIFCAAQgAQyBQgAEIAEOggIABCABBCxA1DPBFiBCGDCCmgAcAB4AIABSIgBhQOSAQE2mAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=9Ea0Y5atJ7OG7_UPrI-poAk&bih=881&biw=1824&rlz=1C1JJTC_enCH974CH975)
+
+<br></br>
 
 # Possible Next Steps
 
@@ -212,7 +221,7 @@ Since the time for this project was scarce and the complexity relatively high we
   
 just have a look at [ddsp demos] (https://github.com/magenta/ddsp/tree/main/ddsp/colab/demos - there are lots of (new) ideas once your familiar with the library and data!
 
-## Further Links
+# Further Links
 
 [Youtube: Google staff research scientist Jesse Engel explaining DDSP](https://www.youtube.com/watch?v=20vUaDblkUM&ab_channel=TheTWIMLAIPodcastwithSamCharrington)
 
