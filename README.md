@@ -2,7 +2,7 @@
  
 # Discovering Google Magenta´s DDSP library
 
-***Digitally process audio data with ML*** 
+***Digitally process audio data with AI & ML*** 
 
  
 ## Introduction
